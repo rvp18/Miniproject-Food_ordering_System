@@ -1,22 +1,22 @@
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import java.awt.Color;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import javax.swing.JButton;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
-import com.jgoodies.forms.layout.FormSpecs;
+import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
 public class RegistrationPage extends JFrame {
 
@@ -25,7 +25,6 @@ public class RegistrationPage extends JFrame {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JPasswordField passwordField;
-	private JPasswordField passwordField_1;
 
 	/**
 	 * Launch the application.
@@ -42,19 +41,26 @@ public class RegistrationPage extends JFrame {
 			}
 		});
 	}
+	
+	Connection con = null;
+	
 
 	/**
 	 * Create the frame.
 	 */
 	public RegistrationPage() {
+		con=db.dbconnect();
+				
+				
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1500, 800);
+		setBounds(10, 20, 1500, 800);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(Color.WHITE);
 		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 		
@@ -98,11 +104,6 @@ public class RegistrationPage extends JFrame {
 		lblNewLabel_1_2_1.setBounds(341, 452, 151, 36);
 		panel.add(lblNewLabel_1_2_1);
 		
-		JLabel lblNewLabel_1_2_1_1 = new JLabel("Confirm Password:");
-		lblNewLabel_1_2_1_1.setFont(new Font("Maiandra GD", Font.BOLD, 25));
-		lblNewLabel_1_2_1_1.setBounds(341, 552, 313, 36);
-		panel.add(lblNewLabel_1_2_1_1);
-		
 		JButton btnNewButton = new JButton("REGISTER");
 		btnNewButton.setBackground(Color.ORANGE);
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -113,25 +114,36 @@ public class RegistrationPage extends JFrame {
 				String Email= textField_1.getText();
 				String phone_number=textField_2.getText();
 				String password= passwordField.getText();
-				String confirmpassword= passwordField_1.getText();
 				
-				cardDetails1.main(null);
+				try {
+			          PreparedStatement pst=(PreparedStatement)con.prepareStatement("insert into user(Name,Email,PhoneNo,Password) values(?,?,?,?)");
+			          pst.setString(1, Name);
+			          pst.setString(2, Email);
+			          pst.setString(3, phone_number);
+			          pst.setString(4, password);
+			          pst.executeUpdate();
+			          JOptionPane.showMessageDialog(null, "Signed up Successfully");
+			          cardDetails1.main(null);
+			        } catch (SQLException e1) {
+			          // TODO Auto-generated catch block
+			        	JOptionPane.showMessageDialog(null, "Something Went Wrong","Registration",JOptionPane.ERROR_MESSAGE);
+			          e1.printStackTrace();
+			        }
+				
+				
+			
 			}
 		});
-		btnNewButton.setBounds(560, 673, 135, 50);
+		btnNewButton.setBounds(560, 599, 135, 50);
 		panel.add(btnNewButton);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon(RegistrationPage.class.getResource("/Images/external-cutlery-self-protection-linector-lineal-color-linector.png")));
-		lblNewLabel_2.setBounds(1145, 48, 135, 141);
+		lblNewLabel_2.setIcon(new ImageIcon(RegistrationPage.class.getResource("/Images/APSITO-White.jpeg")));
+		lblNewLabel_2.setBounds(934, -239, 579, 424);
 		panel.add(lblNewLabel_2);
 		
 		passwordField = new JPasswordField();
 		passwordField.setBounds(341, 490, 579, 36);
 		panel.add(passwordField);
-		
-		passwordField_1 = new JPasswordField();
-		passwordField_1.setBounds(341, 596, 579, 36);
-		panel.add(passwordField_1);
 	}
 }

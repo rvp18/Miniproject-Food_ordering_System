@@ -1,10 +1,11 @@
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -15,7 +16,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import java.awt.Button;
 
 public class apsit {
 
@@ -47,14 +47,16 @@ public class apsit {
 		}
 		
 		
-
+        Connection con=null;
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		con=db.dbconnect();
+		
 		frame = new JFrame();
 		frame.setForeground(Color.CYAN);
-		frame.setBounds(100, 100, 1500, 800);
+		frame.setBounds(10, 20, 1500, 800);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.X_AXIS));
 		
@@ -64,36 +66,68 @@ public class apsit {
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
+		
 		JButton btnNewButton = new JButton("Log IN");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				String password= passwordField.getText();
-				String username = textField.getText();
-				
-				if (password.contains("APSITO") && username.contains("apsito@gmail.com")) {
-					
-					passwordField.setText(null);
-					textField.setText(null);
-					
-					
-					
-					Home homepage=new Home();
-					homepage.setVisible(true);
-					
-					
-					
-				}else {
-					JOptionPane.showMessageDialog(null, "Invaild Login Details","Login Error",JOptionPane.ERROR_MESSAGE);
-					passwordField.setText(null);
-					textField.setText(null);
+				try
+				{    String password= String.valueOf(passwordField.getPassword());
+     				 String Email = textField.getText();
+     				PreparedStatement pst=(PreparedStatement)con.prepareStatement("select * from user where Email=? and Password=?");
+				    pst.setString(1, Email);
+				    pst.setString(2, password);
+				    ResultSet r= pst.executeQuery();
+				    
+				  
+				    
+				    if(r.next()){
+				    	Home homepage=new Home();
+						homepage.setVisible(true);
+				    	
+				    }
+				    else {
+				    	JOptionPane.showMessageDialog(null, "Wrong Email or Password");
+				    	passwordField.setText(null);
+						textField.setText(null);
+				    }
+				    
+				    
 				}
+				catch(Exception e1) {
+					e1.printStackTrace();
+					
+				}
+				
+				
+				
+//				String password= passwordField.getText();
+//				String username = textField.getText();
+//				
+//				if (password.contains("APSITO") && username.contains("apsito@gmail.com")) {
+//					
+//					passwordField.setText(null);
+//					textField.setText(null);
+//				
+//					
+//					
+//					
+//					Home homepage=new Home();
+//					homepage.setVisible(true);
+//					
+//					
+//					
+//				}else {
+//					JOptionPane.showMessageDialog(null, "Invaild Login Details","Login Error",JOptionPane.ERROR_MESSAGE);
+//					passwordField.setText(null);
+//					textField.setText(null);
+//				}
 			}
 		});
 		btnNewButton.setBackground(Color.ORANGE);
 		btnNewButton.setFont(new Font("Maiandra GD", Font.BOLD, 18));
 		btnNewButton.setForeground(Color.BLACK);
-		btnNewButton.setBounds(719, 486, 169, 61);
+		btnNewButton.setBounds(719, 486, 160, 54);
 		panel.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("Email");
@@ -112,8 +146,8 @@ public class apsit {
 		textField.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(apsit.class.getResource("/Images/external-cutlery-self-protection-linector-lineal-color-linector.png")));
-		lblNewLabel_1.setBounds(370, 79, 263, 180);
+		lblNewLabel_1.setIcon(new ImageIcon(apsit.class.getResource("/Images/APSITO-White.jpeg")));
+		lblNewLabel_1.setBounds(61, -196, 579, 404);
 		panel.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("NEW TO APSITO?");
@@ -130,15 +164,13 @@ public class apsit {
 		});
 		btnSignUp.setForeground(Color.BLACK);
 		btnSignUp.setFont(new Font("Maiandra GD", Font.BOLD, 10));
-		btnSignUp.setBounds(729, 626, 130, 34);
+		btnSignUp.setBounds(740, 627, 127, 43);
 		panel.add(btnSignUp);
 		
 		passwordField = new JPasswordField();
 		passwordField.setBounds(542, 404, 524, 49);
 		panel.add(passwordField);
 		
-		Button button = new Button("Login");
-		button.setBounds(569, 486, 109, 42);
-		panel.add(button);
+		
 	}
 }

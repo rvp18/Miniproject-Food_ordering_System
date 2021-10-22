@@ -17,6 +17,7 @@ public class payment extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JPasswordField passwordField;
+	private JPasswordField passwordField_1;
 
 	/**
 	 * Launch the application.
@@ -86,5 +87,14 @@ public class payment extends JFrame {
 		btnNewButton.setFont(new Font("Maiandra GD", Font.BOLD, 20));
 		btnNewButton.setBounds(294, 292, 201, 58);
 		panel_1.add(btnNewButton);
+		
+		passwordField_1 = new JPasswordField();
+		passwordField_1.setBounds(386, 190, 108, 44);
+		panel_1.add(passwordField_1);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("CVV");
+		lblNewLabel_2_1.setFont(new Font("Maiandra GD", Font.BOLD, 28));
+		lblNewLabel_2_1.setBounds(380, 150, 212, 44);
+		panel_1.add(lblNewLabel_2_1);
 	}
 }

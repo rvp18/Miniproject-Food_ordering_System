@@ -42,7 +42,7 @@ public class CardDetails2 extends JFrame {
 	 */
 	public CardDetails2() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1500, 800);
+		setBounds(10, 20, 1500, 800);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -53,6 +53,7 @@ public class CardDetails2 extends JFrame {
 		panel.setLayout(null);
 		
 		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(Color.WHITE);
 		panel_1.setLayout(null);
 		panel_1.setBounds(0, 0, 1476, 753);
 		panel.add(panel_1);

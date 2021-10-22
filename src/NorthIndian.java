@@ -41,7 +41,7 @@ public class NorthIndian extends JFrame {
 	 */
 	public NorthIndian() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1500,800);
+		setBounds(10, 20, 1500,800);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -364,6 +364,11 @@ public class NorthIndian extends JFrame {
 		panel_2_1_4_1_1.add(btnNewButton_1_1_4_1_1);
 		
 		JButton btnNewButton_2 = new JButton("Order");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Orderdetails.main(null);
+			}
+		});
 		btnNewButton_2.setFont(new Font("Maiandra GD", Font.BOLD, 30));
 		btnNewButton_2.setBackground(Color.ORANGE);
 		btnNewButton_2.setBounds(632, 600, 209, 58);
@@ -655,6 +660,11 @@ public class NorthIndian extends JFrame {
 		panel_2_1_4_1_1_1.add(btnNewButton_1_1_4_1_1_1);
 		
 		JButton btnNewButton_2_1 = new JButton("Order");
+		btnNewButton_2_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Orderdetails.main(null);
+			}
+		});
 		btnNewButton_2_1.setFont(new Font("Maiandra GD", Font.BOLD, 30));
 		btnNewButton_2_1.setBackground(Color.ORANGE);
 		btnNewButton_2_1.setBounds(632, 600, 209, 58);

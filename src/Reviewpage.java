@@ -43,7 +43,7 @@ public class Reviewpage extends JFrame {
 	 */
 	public Reviewpage() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1500, 800);
+		setBounds(10, 20, 1500, 800);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -102,6 +102,7 @@ public class Reviewpage extends JFrame {
 		panel_1.add(lblNewLabel_1_2);
 		
 		txtDd = new JTextField();
+		txtDd.setFont(new Font("Consolas", Font.BOLD, 20));
 		txtDd.setBackground(SystemColor.control);
 		txtDd.setBounds(158, 383, 583, 151);
 		panel_1.add(txtDd);
