@@ -20,7 +20,7 @@ import javax.swing.JTextField;
 public class apsit {
 
 	private JFrame frame;
-	private JTextField textField;
+	private JTextField txtRahul;
 	private JPasswordField passwordField;
 
 	/**
@@ -54,7 +54,7 @@ public class apsit {
 	private void initialize() {
 		con=db.dbconnect();
 		
-		frame = new JFrame();
+		frame = new JFrame("APSITO");
 		frame.setForeground(Color.CYAN);
 		frame.setBounds(10, 20, 1500, 800);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -73,7 +73,7 @@ public class apsit {
 				
 				try
 				{    String password= String.valueOf(passwordField.getPassword());
-     				 String Email = textField.getText();
+     				 String Email = txtRahul.getText();
      				PreparedStatement pst=(PreparedStatement)con.prepareStatement("select * from user where Email=? and Password=?");
 				    pst.setString(1, Email);
 				    pst.setString(2, password);
@@ -89,7 +89,7 @@ public class apsit {
 				    else {
 				    	JOptionPane.showMessageDialog(null, "Wrong Email or Password");
 				    	passwordField.setText(null);
-						textField.setText(null);
+						txtRahul.setText(null);
 				    }
 				    
 				    
@@ -140,10 +140,10 @@ public class apsit {
 		lblPassword.setBounds(542, 360, 249, 49);
 		panel.add(lblPassword);
 		
-		textField = new JTextField();
-		textField.setBounds(542, 301, 524, 49);
-		panel.add(textField);
-		textField.setColumns(10);
+		txtRahul = new JTextField();
+		txtRahul.setBounds(542, 301, 524, 49);
+		panel.add(txtRahul);
+		txtRahul.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon(apsit.class.getResource("/Images/APSITO-White.jpeg")));

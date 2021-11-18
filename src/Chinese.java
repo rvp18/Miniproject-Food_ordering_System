@@ -149,6 +149,11 @@ public class Chinese extends JFrame {
 		btnNewButton_1_1_6_1.setBounds(437, 20, 110, 36);
 		panel_2_1_6_1.add(btnNewButton_1_1_6_1);
 		
+		JLabel lblRs_2_1 = new JLabel("Rs.50/-");
+		lblRs_2_1.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_2_1.setBounds(324, 10, 103, 56);
+		panel_2_1_6_1.add(lblRs_2_1);
+		
 		Panel panel_2_1_1_2_1 = new Panel();
 		panel_2_1_1_2_1.setLayout(null);
 		panel_2_1_1_2_1.setBounds(10, 309, 715, 69);
@@ -172,6 +177,11 @@ public class Chinese extends JFrame {
 		btnNewButton_1_1_1_2_1.setBackground(new Color(0, 153, 51));
 		btnNewButton_1_1_1_2_1.setBounds(437, 20, 110, 36);
 		panel_2_1_1_2_1.add(btnNewButton_1_1_1_2_1);
+		
+		JLabel lblRs_2_1_1 = new JLabel("Rs.50/-");
+		lblRs_2_1_1.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_2_1_1.setBounds(324, 10, 103, 56);
+		panel_2_1_1_2_1.add(lblRs_2_1_1);
 		
 		Panel panel_2_1_2_2_1 = new Panel();
 		panel_2_1_2_2_1.setLayout(null);
@@ -197,6 +207,11 @@ public class Chinese extends JFrame {
 		btnNewButton_1_1_2_2_1.setBounds(437, 20, 110, 36);
 		panel_2_1_2_2_1.add(btnNewButton_1_1_2_2_1);
 		
+		JLabel lblRs_2_1_2 = new JLabel("Rs.50/-");
+		lblRs_2_1_2.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_2_1_2.setBounds(324, 10, 103, 56);
+		panel_2_1_2_2_1.add(lblRs_2_1_2);
+		
 		Panel panel_2_1_3_2_1 = new Panel();
 		panel_2_1_3_2_1.setLayout(null);
 		panel_2_1_3_2_1.setBounds(10, 446, 715, 69);
@@ -220,6 +235,11 @@ public class Chinese extends JFrame {
 		btnNewButton_1_1_3_2_1.setBackground(new Color(0, 153, 51));
 		btnNewButton_1_1_3_2_1.setBounds(437, 20, 110, 36);
 		panel_2_1_3_2_1.add(btnNewButton_1_1_3_2_1);
+		
+		JLabel lblRs_2_1_3 = new JLabel("Rs.50/-");
+		lblRs_2_1_3.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_2_1_3.setBounds(324, 10, 103, 56);
+		panel_2_1_3_2_1.add(lblRs_2_1_3);
 		
 		Panel panel_2_1_4_2_1 = new Panel();
 		panel_2_1_4_2_1.setLayout(null);
@@ -245,6 +265,11 @@ public class Chinese extends JFrame {
 		btnNewButton_1_1_4_2_1.setBounds(437, 20, 110, 36);
 		panel_2_1_4_2_1.add(btnNewButton_1_1_4_2_1);
 		
+		JLabel lblRs_2_1_4 = new JLabel("Rs.50/-");
+		lblRs_2_1_4.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_2_1_4.setBounds(324, 10, 103, 56);
+		panel_2_1_4_2_1.add(lblRs_2_1_4);
+		
 		Panel panel_2_1_5_1_1 = new Panel();
 		panel_2_1_5_1_1.setLayout(null);
 		panel_2_1_5_1_1.setBounds(744, 240, 715, 69);
@@ -268,6 +293,11 @@ public class Chinese extends JFrame {
 		btnNewButton_1_1_5_1_1.setBackground(new Color(0, 153, 51));
 		btnNewButton_1_1_5_1_1.setBounds(437, 20, 110, 36);
 		panel_2_1_5_1_1.add(btnNewButton_1_1_5_1_1);
+		
+		JLabel lblRs_2_1_5 = new JLabel("Rs.50/-");
+		lblRs_2_1_5.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_2_1_5.setBounds(324, 10, 103, 56);
+		panel_2_1_5_1_1.add(lblRs_2_1_5);
 		
 		Panel panel_2_1_1_1_1_1 = new Panel();
 		panel_2_1_1_1_1_1.setLayout(null);
@@ -293,6 +323,11 @@ public class Chinese extends JFrame {
 		btnNewButton_1_1_1_1_1_1.setBounds(437, 20, 110, 36);
 		panel_2_1_1_1_1_1.add(btnNewButton_1_1_1_1_1_1);
 		
+		JLabel lblRs_2_1_6 = new JLabel("Rs.50/-");
+		lblRs_2_1_6.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_2_1_6.setBounds(324, 10, 103, 56);
+		panel_2_1_1_1_1_1.add(lblRs_2_1_6);
+		
 		Panel panel_2_1_2_1_1_1 = new Panel();
 		panel_2_1_2_1_1_1.setLayout(null);
 		panel_2_1_2_1_1_1.setBounds(744, 378, 715, 69);
@@ -316,6 +351,11 @@ public class Chinese extends JFrame {
 		btnNewButton_1_1_2_1_1_1.setBackground(new Color(0, 153, 51));
 		btnNewButton_1_1_2_1_1_1.setBounds(437, 20, 110, 36);
 		panel_2_1_2_1_1_1.add(btnNewButton_1_1_2_1_1_1);
+		
+		JLabel lblRs_2_1_7 = new JLabel("Rs.50/-");
+		lblRs_2_1_7.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_2_1_7.setBounds(324, 10, 103, 56);
+		panel_2_1_2_1_1_1.add(lblRs_2_1_7);
 		
 		Panel panel_2_1_3_1_1_1 = new Panel();
 		panel_2_1_3_1_1_1.setLayout(null);
@@ -341,6 +381,11 @@ public class Chinese extends JFrame {
 		btnNewButton_1_1_3_1_1_1.setBounds(437, 20, 110, 36);
 		panel_2_1_3_1_1_1.add(btnNewButton_1_1_3_1_1_1);
 		
+		JLabel lblRs_2_1_8 = new JLabel("Rs.50/-");
+		lblRs_2_1_8.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_2_1_8.setBounds(324, 10, 103, 56);
+		panel_2_1_3_1_1_1.add(lblRs_2_1_8);
+		
 		Panel panel_2_1_4_1_1_1 = new Panel();
 		panel_2_1_4_1_1_1.setLayout(null);
 		panel_2_1_4_1_1_1.setBounds(744, 515, 715, 69);
@@ -364,6 +409,11 @@ public class Chinese extends JFrame {
 		btnNewButton_1_1_4_1_1_1.setBackground(new Color(0, 153, 51));
 		btnNewButton_1_1_4_1_1_1.setBounds(437, 20, 110, 36);
 		panel_2_1_4_1_1_1.add(btnNewButton_1_1_4_1_1_1);
+		
+		JLabel lblRs_2_1_9 = new JLabel("Rs.50/-");
+		lblRs_2_1_9.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_2_1_9.setBounds(324, 10, 103, 56);
+		panel_2_1_4_1_1_1.add(lblRs_2_1_9);
 		
 		JButton btnNewButton_2 = new JButton("Order");
 		btnNewButton_2.addActionListener(new ActionListener() {
@@ -448,6 +498,11 @@ public class Chinese extends JFrame {
 		btnNewButton_1_1_6_1_1.setBounds(437, 20, 110, 36);
 		panel_2_1_6_1_1.add(btnNewButton_1_1_6_1_1);
 		
+		JLabel lblRs_2_1_10 = new JLabel("Rs.50/-");
+		lblRs_2_1_10.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_2_1_10.setBounds(324, 10, 103, 56);
+		panel_2_1_6_1_1.add(lblRs_2_1_10);
+		
 		Panel panel_2_1_1_2_1_1 = new Panel();
 		panel_2_1_1_2_1_1.setLayout(null);
 		panel_2_1_1_2_1_1.setBounds(10, 309, 715, 69);
@@ -471,6 +526,11 @@ public class Chinese extends JFrame {
 		btnNewButton_1_1_1_2_1_1.setBackground(new Color(0, 153, 51));
 		btnNewButton_1_1_1_2_1_1.setBounds(437, 20, 110, 36);
 		panel_2_1_1_2_1_1.add(btnNewButton_1_1_1_2_1_1);
+		
+		JLabel lblRs_2_1_11 = new JLabel("Rs.50/-");
+		lblRs_2_1_11.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_2_1_11.setBounds(324, 10, 103, 56);
+		panel_2_1_1_2_1_1.add(lblRs_2_1_11);
 		
 		Panel panel_2_1_2_2_1_1 = new Panel();
 		panel_2_1_2_2_1_1.setLayout(null);
@@ -496,6 +556,11 @@ public class Chinese extends JFrame {
 		btnNewButton_1_1_2_2_1_1.setBounds(437, 20, 110, 36);
 		panel_2_1_2_2_1_1.add(btnNewButton_1_1_2_2_1_1);
 		
+		JLabel lblRs_2_1_12 = new JLabel("Rs.50/-");
+		lblRs_2_1_12.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_2_1_12.setBounds(324, 10, 103, 56);
+		panel_2_1_2_2_1_1.add(lblRs_2_1_12);
+		
 		Panel panel_2_1_3_2_1_1 = new Panel();
 		panel_2_1_3_2_1_1.setLayout(null);
 		panel_2_1_3_2_1_1.setBounds(10, 446, 715, 69);
@@ -519,6 +584,11 @@ public class Chinese extends JFrame {
 		btnNewButton_1_1_3_2_1_1.setBackground(new Color(0, 153, 51));
 		btnNewButton_1_1_3_2_1_1.setBounds(437, 20, 110, 36);
 		panel_2_1_3_2_1_1.add(btnNewButton_1_1_3_2_1_1);
+		
+		JLabel lblRs_2_1_13 = new JLabel("Rs.50/-");
+		lblRs_2_1_13.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_2_1_13.setBounds(324, 10, 103, 56);
+		panel_2_1_3_2_1_1.add(lblRs_2_1_13);
 		
 		Panel panel_2_1_4_2_1_1 = new Panel();
 		panel_2_1_4_2_1_1.setLayout(null);
@@ -544,6 +614,11 @@ public class Chinese extends JFrame {
 		btnNewButton_1_1_4_2_1_1.setBounds(437, 20, 110, 36);
 		panel_2_1_4_2_1_1.add(btnNewButton_1_1_4_2_1_1);
 		
+		JLabel lblRs_2_1_14 = new JLabel("Rs.50/-");
+		lblRs_2_1_14.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_2_1_14.setBounds(324, 10, 103, 56);
+		panel_2_1_4_2_1_1.add(lblRs_2_1_14);
+		
 		Panel panel_2_1_5_1_1_1 = new Panel();
 		panel_2_1_5_1_1_1.setLayout(null);
 		panel_2_1_5_1_1_1.setBounds(744, 240, 715, 69);
@@ -567,6 +642,11 @@ public class Chinese extends JFrame {
 		btnNewButton_1_1_5_1_1_1.setBackground(new Color(0, 153, 51));
 		btnNewButton_1_1_5_1_1_1.setBounds(437, 20, 110, 36);
 		panel_2_1_5_1_1_1.add(btnNewButton_1_1_5_1_1_1);
+		
+		JLabel lblRs_2_1_15 = new JLabel("Rs.50/-");
+		lblRs_2_1_15.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_2_1_15.setBounds(324, 10, 103, 56);
+		panel_2_1_5_1_1_1.add(lblRs_2_1_15);
 		
 		Panel panel_2_1_1_1_1_1_1 = new Panel();
 		panel_2_1_1_1_1_1_1.setLayout(null);
@@ -592,6 +672,11 @@ public class Chinese extends JFrame {
 		btnNewButton_1_1_1_1_1_1_1.setBounds(437, 20, 110, 36);
 		panel_2_1_1_1_1_1_1.add(btnNewButton_1_1_1_1_1_1_1);
 		
+		JLabel lblRs_2_1_16 = new JLabel("Rs.50/-");
+		lblRs_2_1_16.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_2_1_16.setBounds(324, 10, 103, 56);
+		panel_2_1_1_1_1_1_1.add(lblRs_2_1_16);
+		
 		Panel panel_2_1_2_1_1_1_1 = new Panel();
 		panel_2_1_2_1_1_1_1.setLayout(null);
 		panel_2_1_2_1_1_1_1.setBounds(744, 378, 715, 69);
@@ -615,6 +700,11 @@ public class Chinese extends JFrame {
 		btnNewButton_1_1_2_1_1_1_1.setBackground(new Color(0, 153, 51));
 		btnNewButton_1_1_2_1_1_1_1.setBounds(437, 20, 110, 36);
 		panel_2_1_2_1_1_1_1.add(btnNewButton_1_1_2_1_1_1_1);
+		
+		JLabel lblRs_2_1_17 = new JLabel("Rs.50/-");
+		lblRs_2_1_17.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_2_1_17.setBounds(324, 8, 103, 56);
+		panel_2_1_2_1_1_1_1.add(lblRs_2_1_17);
 		
 		Panel panel_2_1_3_1_1_1_1 = new Panel();
 		panel_2_1_3_1_1_1_1.setLayout(null);
@@ -640,6 +730,11 @@ public class Chinese extends JFrame {
 		btnNewButton_1_1_3_1_1_1_1.setBounds(437, 20, 110, 36);
 		panel_2_1_3_1_1_1_1.add(btnNewButton_1_1_3_1_1_1_1);
 		
+		JLabel lblRs_2_1_18 = new JLabel("Rs.50/-");
+		lblRs_2_1_18.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_2_1_18.setBounds(324, 10, 103, 56);
+		panel_2_1_3_1_1_1_1.add(lblRs_2_1_18);
+		
 		Panel panel_2_1_4_1_1_1_1 = new Panel();
 		panel_2_1_4_1_1_1_1.setLayout(null);
 		panel_2_1_4_1_1_1_1.setBounds(744, 515, 715, 69);
@@ -663,6 +758,11 @@ public class Chinese extends JFrame {
 		btnNewButton_1_1_4_1_1_1_1.setBackground(new Color(0, 153, 51));
 		btnNewButton_1_1_4_1_1_1_1.setBounds(437, 20, 110, 36);
 		panel_2_1_4_1_1_1_1.add(btnNewButton_1_1_4_1_1_1_1);
+		
+		JLabel lblRs_2_1_19 = new JLabel("Rs.50/-");
+		lblRs_2_1_19.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_2_1_19.setBounds(324, 10, 103, 56);
+		panel_2_1_4_1_1_1_1.add(lblRs_2_1_19);
 		
 		JButton btnNewButton_2_1 = new JButton("Order");
 		btnNewButton_2_1.addActionListener(new ActionListener() {

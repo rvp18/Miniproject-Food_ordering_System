@@ -13,12 +13,13 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import com.toedter.calendar.JMonthChooser;
+import com.toedter.calendar.JYearChooser;
 
 public class CardDetails2 extends JFrame {
 
 	private JPanel contentPane;
 	private JPasswordField passwordField;
-	private JTextField textField;
 	private JTextField textField_1;
 
 	/**
@@ -67,12 +68,6 @@ public class CardDetails2 extends JFrame {
 		passwordField.setBounds(425, 333, 580, 44);
 		panel_1.add(passwordField);
 		
-		textField = new JTextField();
-		textField.setFont(new Font("Consolas", Font.BOLD, 20));
-		textField.setColumns(10);
-		textField.setBounds(425, 438, 221, 44);
-		panel_1.add(textField);
-		
 		JLabel lblNewLabel_2 = new JLabel("Expiry Date");
 		lblNewLabel_2.setFont(new Font("Maiandra GD", Font.BOLD, 28));
 		lblNewLabel_2.setBounds(425, 397, 212, 44);
@@ -111,5 +106,14 @@ public class CardDetails2 extends JFrame {
 		btnBack_1.setBackground(Color.WHITE);
 		btnBack_1.setBounds(59, 598, 101, 80);
 		panel_1.add(btnBack_1);
+		
+		JMonthChooser monthChooser = new JMonthChooser();
+		monthChooser.getComboBox().setFont(new Font("Maiandra GD", Font.BOLD, 15));
+		monthChooser.setBounds(425, 451, 119, 36);
+		panel_1.add(monthChooser);
+		
+		JYearChooser yearChooser = new JYearChooser();
+		yearChooser.setBounds(554, 451, 64, 36);
+		panel_1.add(yearChooser);
 	}
 }

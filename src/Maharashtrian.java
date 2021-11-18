@@ -114,7 +114,7 @@ public class Maharashtrian extends JFrame {
 		
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon(Maharashtrian.class.getResource("/Images/off1.jpg")));
-		lblNewLabel_1.setBounds(33, 62, 688, 163);
+		lblNewLabel_1.setBounds(27, 62, 688, 163);
 		panel_2.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("");
@@ -127,10 +127,10 @@ public class Maharashtrian extends JFrame {
 		panel_2_1.setBounds(10, 231, 715, 69);
 		panel_2.add(panel_2_1);
 		
-		JLabel lblNewLabel_1_2 = new JLabel("NAME");
-		lblNewLabel_1_2.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_1_2.setBounds(10, 10, 273, 56);
-		panel_2_1.add(lblNewLabel_1_2);
+		JLabel MasalaPapad = new JLabel("Masala Papad");
+		MasalaPapad.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		MasalaPapad.setBounds(10, 10, 273, 56);
+		panel_2_1.add(MasalaPapad);
 		
 		JButton btnNewButton_1 = new JButton("Remove");
 		btnNewButton_1.setForeground(Color.WHITE);
@@ -146,15 +146,15 @@ public class Maharashtrian extends JFrame {
 		btnNewButton_1_1.setBounds(437, 20, 110, 36);
 		panel_2_1.add(btnNewButton_1_1);
 		
+		JLabel lblRs_2_1 = new JLabel("Rs.50/-");
+		lblRs_2_1.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_2_1.setBounds(324, 10, 103, 56);
+		panel_2_1.add(lblRs_2_1);
+		
 		Panel panel_2_1_1 = new Panel();
 		panel_2_1_1.setLayout(null);
 		panel_2_1_1.setBounds(10, 300, 715, 69);
 		panel_2.add(panel_2_1_1);
-		
-		JLabel lblNewLabel_1_2_1 = new JLabel("NAME");
-		lblNewLabel_1_2_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_1_2_1.setBounds(10, 10, 273, 56);
-		panel_2_1_1.add(lblNewLabel_1_2_1);
 		
 		JButton btnNewButton_1_2 = new JButton("Remove");
 		btnNewButton_1_2.setForeground(Color.WHITE);
@@ -170,15 +170,20 @@ public class Maharashtrian extends JFrame {
 		btnNewButton_1_1_1.setBounds(437, 20, 110, 36);
 		panel_2_1_1.add(btnNewButton_1_1_1);
 		
+		JLabel lblRs_2_2 = new JLabel("Rs.60/-");
+		lblRs_2_2.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_2_2.setBounds(323, 10, 103, 56);
+		panel_2_1_1.add(lblRs_2_2);
+		
+		JLabel MixBhaji = new JLabel("Mix Bhaji");
+		MixBhaji.setBounds(10, 10, 273, 56);
+		panel_2_1_1.add(MixBhaji);
+		MixBhaji.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		
 		Panel panel_2_1_2 = new Panel();
 		panel_2_1_2.setLayout(null);
 		panel_2_1_2.setBounds(10, 369, 715, 69);
 		panel_2.add(panel_2_1_2);
-		
-		JLabel lblNewLabel_1_2_2 = new JLabel("NAME");
-		lblNewLabel_1_2_2.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_1_2_2.setBounds(10, 10, 273, 56);
-		panel_2_1_2.add(lblNewLabel_1_2_2);
 		
 		JButton btnNewButton_1_3 = new JButton("Remove");
 		btnNewButton_1_3.setForeground(Color.WHITE);
@@ -194,15 +199,20 @@ public class Maharashtrian extends JFrame {
 		btnNewButton_1_1_2.setBounds(437, 20, 110, 36);
 		panel_2_1_2.add(btnNewButton_1_1_2);
 		
+		JLabel lblRs_2_3 = new JLabel("Rs.70/-");
+		lblRs_2_3.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_2_3.setBounds(323, 10, 103, 56);
+		panel_2_1_2.add(lblRs_2_3);
+		
+		JLabel MoogVada = new JLabel("Moog Vada");
+		MoogVada.setBounds(10, 10, 273, 56);
+		panel_2_1_2.add(MoogVada);
+		MoogVada.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		
 		Panel panel_2_1_3 = new Panel();
 		panel_2_1_3.setLayout(null);
 		panel_2_1_3.setBounds(10, 437, 715, 69);
 		panel_2.add(panel_2_1_3);
-		
-		JLabel lblNewLabel_1_2_3 = new JLabel("NAME");
-		lblNewLabel_1_2_3.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_1_2_3.setBounds(10, 10, 273, 56);
-		panel_2_1_3.add(lblNewLabel_1_2_3);
 		
 		JButton btnNewButton_1_4 = new JButton("Remove");
 		btnNewButton_1_4.setForeground(Color.WHITE);
@@ -218,15 +228,20 @@ public class Maharashtrian extends JFrame {
 		btnNewButton_1_1_3.setBounds(437, 20, 110, 36);
 		panel_2_1_3.add(btnNewButton_1_1_3);
 		
+		JLabel lblRs_2_3_1 = new JLabel("Rs.80/-");
+		lblRs_2_3_1.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_2_3_1.setBounds(324, 10, 103, 56);
+		panel_2_1_3.add(lblRs_2_3_1);
+		
+		JLabel ChanaKoliwada = new JLabel("Chana Koliwada");
+		ChanaKoliwada.setBounds(10, 12, 273, 56);
+		panel_2_1_3.add(ChanaKoliwada);
+		ChanaKoliwada.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		
 		Panel panel_2_1_4 = new Panel();
 		panel_2_1_4.setLayout(null);
 		panel_2_1_4.setBounds(10, 506, 715, 69);
 		panel_2.add(panel_2_1_4);
-		
-		JLabel lblNewLabel_1_2_4 = new JLabel("NAME");
-		lblNewLabel_1_2_4.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_1_2_4.setBounds(10, 10, 273, 56);
-		panel_2_1_4.add(lblNewLabel_1_2_4);
 		
 		JButton btnNewButton_1_5 = new JButton("Remove");
 		btnNewButton_1_5.setForeground(Color.WHITE);
@@ -242,15 +257,25 @@ public class Maharashtrian extends JFrame {
 		btnNewButton_1_1_4.setBounds(437, 20, 110, 36);
 		panel_2_1_4.add(btnNewButton_1_1_4);
 		
+		JLabel lblRs_2_3_2 = new JLabel("Rs.100/-");
+		lblRs_2_3_2.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_2_3_2.setBounds(324, 10, 103, 56);
+		panel_2_1_4.add(lblRs_2_3_2);
+		
+		JLabel MalvaniPannerTikka = new JLabel("Malvani Paneer Tikka ");
+		MalvaniPannerTikka.setBounds(10, 10, 273, 56);
+		panel_2_1_4.add(MalvaniPannerTikka);
+		MalvaniPannerTikka.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		
 		Panel panel_2_1_5 = new Panel();
 		panel_2_1_5.setLayout(null);
 		panel_2_1_5.setBounds(744, 231, 715, 69);
 		panel_2.add(panel_2_1_5);
 		
-		JLabel lblNewLabel_1_2_5 = new JLabel("NAME");
-		lblNewLabel_1_2_5.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_1_2_5.setBounds(10, 10, 273, 56);
-		panel_2_1_5.add(lblNewLabel_1_2_5);
+		JLabel ChickenFry = new JLabel("Chicken Fry");
+		ChickenFry.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		ChickenFry.setBounds(10, 10, 273, 56);
+		panel_2_1_5.add(ChickenFry);
 		
 		JButton btnNewButton_1_6 = new JButton("Remove");
 		btnNewButton_1_6.setForeground(Color.WHITE);
@@ -266,15 +291,20 @@ public class Maharashtrian extends JFrame {
 		btnNewButton_1_1_5.setBounds(437, 20, 110, 36);
 		panel_2_1_5.add(btnNewButton_1_1_5);
 		
+		JLabel lblRs_2_3_3 = new JLabel("Rs.150/-");
+		lblRs_2_3_3.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_2_3_3.setBounds(318, 10, 103, 56);
+		panel_2_1_5.add(lblRs_2_3_3);
+		
 		Panel panel_2_1_1_1 = new Panel();
 		panel_2_1_1_1.setLayout(null);
 		panel_2_1_1_1.setBounds(744, 300, 715, 69);
 		panel_2.add(panel_2_1_1_1);
 		
-		JLabel lblNewLabel_1_2_1_1 = new JLabel("NAME");
-		lblNewLabel_1_2_1_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_1_2_1_1.setBounds(10, 10, 273, 56);
-		panel_2_1_1_1.add(lblNewLabel_1_2_1_1);
+		JLabel MuttonFry = new JLabel("Mutton Fry");
+		MuttonFry.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		MuttonFry.setBounds(10, 10, 273, 56);
+		panel_2_1_1_1.add(MuttonFry);
 		
 		JButton btnNewButton_1_2_1 = new JButton("Remove");
 		btnNewButton_1_2_1.setForeground(Color.WHITE);
@@ -290,15 +320,20 @@ public class Maharashtrian extends JFrame {
 		btnNewButton_1_1_1_1.setBounds(437, 20, 110, 36);
 		panel_2_1_1_1.add(btnNewButton_1_1_1_1);
 		
+		JLabel lblRs_2_3_4 = new JLabel("Rs.150/-");
+		lblRs_2_3_4.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_2_3_4.setBounds(315, 10, 103, 56);
+		panel_2_1_1_1.add(lblRs_2_3_4);
+		
 		Panel panel_2_1_2_1 = new Panel();
 		panel_2_1_2_1.setLayout(null);
 		panel_2_1_2_1.setBounds(744, 369, 715, 69);
 		panel_2.add(panel_2_1_2_1);
 		
-		JLabel lblNewLabel_1_2_2_1 = new JLabel("NAME");
-		lblNewLabel_1_2_2_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_1_2_2_1.setBounds(10, 10, 273, 56);
-		panel_2_1_2_1.add(lblNewLabel_1_2_2_1);
+		JLabel PrawnsFry = new JLabel("Prawns Fry");
+		PrawnsFry.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		PrawnsFry.setBounds(10, 10, 273, 56);
+		panel_2_1_2_1.add(PrawnsFry);
 		
 		JButton btnNewButton_1_3_1 = new JButton("Remove");
 		btnNewButton_1_3_1.setForeground(Color.WHITE);
@@ -314,15 +349,20 @@ public class Maharashtrian extends JFrame {
 		btnNewButton_1_1_2_1.setBounds(437, 20, 110, 36);
 		panel_2_1_2_1.add(btnNewButton_1_1_2_1);
 		
+		JLabel lblRs_2_3_5 = new JLabel("Rs.170/-");
+		lblRs_2_3_5.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_2_3_5.setBounds(316, 10, 103, 56);
+		panel_2_1_2_1.add(lblRs_2_3_5);
+		
 		Panel panel_2_1_3_1 = new Panel();
 		panel_2_1_3_1.setLayout(null);
 		panel_2_1_3_1.setBounds(744, 437, 715, 69);
 		panel_2.add(panel_2_1_3_1);
 		
-		JLabel lblNewLabel_1_2_3_1 = new JLabel("NAME");
-		lblNewLabel_1_2_3_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_1_2_3_1.setBounds(10, 10, 273, 56);
-		panel_2_1_3_1.add(lblNewLabel_1_2_3_1);
+		JLabel SurmaiFry = new JLabel("Surmai Fry");
+		SurmaiFry.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		SurmaiFry.setBounds(10, 10, 273, 56);
+		panel_2_1_3_1.add(SurmaiFry);
 		
 		JButton btnNewButton_1_4_1 = new JButton("Remove");
 		btnNewButton_1_4_1.setForeground(Color.WHITE);
@@ -338,15 +378,20 @@ public class Maharashtrian extends JFrame {
 		btnNewButton_1_1_3_1.setBounds(437, 20, 110, 36);
 		panel_2_1_3_1.add(btnNewButton_1_1_3_1);
 		
+		JLabel lblRs_2_3_6 = new JLabel("Rs.180/-");
+		lblRs_2_3_6.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_2_3_6.setBounds(314, 8, 103, 56);
+		panel_2_1_3_1.add(lblRs_2_3_6);
+		
 		Panel panel_2_1_4_1 = new Panel();
 		panel_2_1_4_1.setLayout(null);
 		panel_2_1_4_1.setBounds(744, 506, 715, 69);
 		panel_2.add(panel_2_1_4_1);
 		
-		JLabel lblNewLabel_1_2_4_1 = new JLabel("NAME");
-		lblNewLabel_1_2_4_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_1_2_4_1.setBounds(10, 10, 273, 56);
-		panel_2_1_4_1.add(lblNewLabel_1_2_4_1);
+		JLabel PomfretFry = new JLabel("Pomfret Fry");
+		PomfretFry.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		PomfretFry.setBounds(10, 10, 273, 56);
+		panel_2_1_4_1.add(PomfretFry);
 		
 		JButton btnNewButton_1_5_1 = new JButton("Remove");
 		btnNewButton_1_5_1.setForeground(Color.WHITE);
@@ -361,6 +406,11 @@ public class Maharashtrian extends JFrame {
 		btnNewButton_1_1_4_1.setBackground(new Color(0, 153, 51));
 		btnNewButton_1_1_4_1.setBounds(437, 20, 110, 36);
 		panel_2_1_4_1.add(btnNewButton_1_1_4_1);
+		
+		JLabel lblRs_2_3_7 = new JLabel("Rs.200/-");
+		lblRs_2_3_7.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_2_3_7.setBounds(316, 8, 103, 56);
+		panel_2_1_4_1.add(lblRs_2_3_7);
 		
 		JButton btnNewButton_2 = new JButton("Order");
 		btnNewButton_2.addActionListener(new ActionListener() {
@@ -398,7 +448,7 @@ public class Maharashtrian extends JFrame {
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setOrientation(SwingConstants.VERTICAL);
 		separator_1.setBackground(Color.BLACK);
-		separator_1.setBounds(731, 46, 10, 548);
+		separator_1.setBounds(735, 210, 10, 384);
 		panel_2_2.add(separator_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Veg");
@@ -426,11 +476,6 @@ public class Maharashtrian extends JFrame {
 		panel_2_1_6.setBounds(10, 250, 715, 69);
 		panel_2_2.add(panel_2_1_6);
 		
-		JLabel lblNewLabel_1_2_6 = new JLabel("NAME");
-		lblNewLabel_1_2_6.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_1_2_6.setBounds(10, 10, 273, 56);
-		panel_2_1_6.add(lblNewLabel_1_2_6);
-		
 		JButton btnNewButton_1_7 = new JButton("Remove");
 		btnNewButton_1_7.setForeground(Color.WHITE);
 		btnNewButton_1_7.setFont(new Font("Maiandra GD", Font.BOLD, 15));
@@ -445,15 +490,20 @@ public class Maharashtrian extends JFrame {
 		btnNewButton_1_1_6.setBounds(437, 20, 110, 36);
 		panel_2_1_6.add(btnNewButton_1_1_6);
 		
+		JLabel DalFry = new JLabel("Dal Fry");
+		DalFry.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		DalFry.setBounds(10, 10, 273, 56);
+		panel_2_1_6.add(DalFry);
+		
+		JLabel lblRs_4 = new JLabel("Rs.130/-");
+		lblRs_4.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_4.setBounds(324, 10, 103, 56);
+		panel_2_1_6.add(lblRs_4);
+		
 		Panel panel_2_1_1_2 = new Panel();
 		panel_2_1_1_2.setLayout(null);
 		panel_2_1_1_2.setBounds(10, 319, 715, 69);
 		panel_2_2.add(panel_2_1_1_2);
-		
-		JLabel lblNewLabel_1_2_1_2 = new JLabel("NAME");
-		lblNewLabel_1_2_1_2.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_1_2_1_2.setBounds(10, 10, 273, 56);
-		panel_2_1_1_2.add(lblNewLabel_1_2_1_2);
 		
 		JButton btnNewButton_1_2_2 = new JButton("Remove");
 		btnNewButton_1_2_2.setForeground(Color.WHITE);
@@ -469,15 +519,20 @@ public class Maharashtrian extends JFrame {
 		btnNewButton_1_1_1_2.setBounds(437, 20, 110, 36);
 		panel_2_1_1_2.add(btnNewButton_1_1_1_2);
 		
+		JLabel lblRs_3 = new JLabel("Rs.150/-");
+		lblRs_3.setBounds(324, 10, 103, 56);
+		panel_2_1_1_2.add(lblRs_3);
+		lblRs_3.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		
+		JLabel VegThali = new JLabel("Veg Thali");
+		VegThali.setBounds(10, 10, 273, 56);
+		panel_2_1_1_2.add(VegThali);
+		VegThali.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		
 		Panel panel_2_1_2_2 = new Panel();
 		panel_2_1_2_2.setLayout(null);
 		panel_2_1_2_2.setBounds(10, 388, 715, 69);
 		panel_2_2.add(panel_2_1_2_2);
-		
-		JLabel lblNewLabel_1_2_2_2 = new JLabel("NAME");
-		lblNewLabel_1_2_2_2.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_1_2_2_2.setBounds(10, 10, 273, 56);
-		panel_2_1_2_2.add(lblNewLabel_1_2_2_2);
 		
 		JButton btnNewButton_1_3_2 = new JButton("Remove");
 		btnNewButton_1_3_2.setForeground(Color.WHITE);
@@ -493,15 +548,20 @@ public class Maharashtrian extends JFrame {
 		btnNewButton_1_1_2_2.setBounds(437, 20, 110, 36);
 		panel_2_1_2_2.add(btnNewButton_1_1_2_2);
 		
+		JLabel VegKolhapuri = new JLabel("Veg Kolhapuri");
+		VegKolhapuri.setBounds(10, 10, 270, 56);
+		panel_2_1_2_2.add(VegKolhapuri);
+		VegKolhapuri.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		
+		JLabel lblRs = new JLabel("Rs.150/-");
+		lblRs.setBounds(324, 10, 103, 56);
+		panel_2_1_2_2.add(lblRs);
+		lblRs.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		
 		Panel panel_2_1_3_2 = new Panel();
 		panel_2_1_3_2.setLayout(null);
 		panel_2_1_3_2.setBounds(10, 456, 715, 69);
 		panel_2_2.add(panel_2_1_3_2);
-		
-		JLabel lblNewLabel_1_2_3_2 = new JLabel("NAME");
-		lblNewLabel_1_2_3_2.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_1_2_3_2.setBounds(10, 10, 273, 56);
-		panel_2_1_3_2.add(lblNewLabel_1_2_3_2);
 		
 		JButton btnNewButton_1_4_2 = new JButton("Remove");
 		btnNewButton_1_4_2.setForeground(Color.WHITE);
@@ -517,15 +577,20 @@ public class Maharashtrian extends JFrame {
 		btnNewButton_1_1_3_2.setBounds(437, 20, 110, 36);
 		panel_2_1_3_2.add(btnNewButton_1_1_3_2);
 		
+		JLabel MushroomMasala = new JLabel("Mushroom Masala");
+		MushroomMasala.setBounds(10, 10, 273, 56);
+		panel_2_1_3_2.add(MushroomMasala);
+		MushroomMasala.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		
+		JLabel lblRs_2 = new JLabel("Rs.170/-");
+		lblRs_2.setBounds(324, 10, 103, 56);
+		panel_2_1_3_2.add(lblRs_2);
+		lblRs_2.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		
 		Panel panel_2_1_4_2 = new Panel();
 		panel_2_1_4_2.setLayout(null);
 		panel_2_1_4_2.setBounds(10, 525, 715, 69);
 		panel_2_2.add(panel_2_1_4_2);
-		
-		JLabel lblNewLabel_1_2_4_2 = new JLabel("NAME");
-		lblNewLabel_1_2_4_2.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_1_2_4_2.setBounds(10, 10, 273, 56);
-		panel_2_1_4_2.add(lblNewLabel_1_2_4_2);
 		
 		JButton btnNewButton_1_5_2 = new JButton("Remove");
 		btnNewButton_1_5_2.setForeground(Color.WHITE);
@@ -541,15 +606,25 @@ public class Maharashtrian extends JFrame {
 		btnNewButton_1_1_4_2.setBounds(437, 20, 110, 36);
 		panel_2_1_4_2.add(btnNewButton_1_1_4_2);
 		
+		JLabel KajuMalvaniMasala = new JLabel("Kaju Malvani Masala");
+		KajuMalvaniMasala.setBounds(10, 10, 276, 56);
+		panel_2_1_4_2.add(KajuMalvaniMasala);
+		KajuMalvaniMasala.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		
+		JLabel lblRs_10 = new JLabel("Rs.200/-");
+		lblRs_10.setBounds(324, 10, 103, 56);
+		panel_2_1_4_2.add(lblRs_10);
+		lblRs_10.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		
 		Panel panel_2_1_5_1 = new Panel();
 		panel_2_1_5_1.setLayout(null);
 		panel_2_1_5_1.setBounds(744, 250, 715, 69);
 		panel_2_2.add(panel_2_1_5_1);
 		
-		JLabel lblNewLabel_1_2_5_1 = new JLabel("NAME");
-		lblNewLabel_1_2_5_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_1_2_5_1.setBounds(10, 10, 273, 56);
-		panel_2_1_5_1.add(lblNewLabel_1_2_5_1);
+		JLabel ChickenHandi = new JLabel("Chicken Handi");
+		ChickenHandi.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		ChickenHandi.setBounds(10, 10, 273, 56);
+		panel_2_1_5_1.add(ChickenHandi);
 		
 		JButton btnNewButton_1_6_1 = new JButton("Remove");
 		btnNewButton_1_6_1.setForeground(Color.WHITE);
@@ -565,15 +640,20 @@ public class Maharashtrian extends JFrame {
 		btnNewButton_1_1_5_1.setBounds(437, 20, 110, 36);
 		panel_2_1_5_1.add(btnNewButton_1_1_5_1);
 		
+		JLabel lblRs_5 = new JLabel("Rs.300/-");
+		lblRs_5.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_5.setBounds(324, 10, 103, 56);
+		panel_2_1_5_1.add(lblRs_5);
+		
 		Panel panel_2_1_1_1_1 = new Panel();
 		panel_2_1_1_1_1.setLayout(null);
 		panel_2_1_1_1_1.setBounds(744, 319, 715, 69);
 		panel_2_2.add(panel_2_1_1_1_1);
 		
-		JLabel lblNewLabel_1_2_1_1_1 = new JLabel("NAME");
-		lblNewLabel_1_2_1_1_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_1_2_1_1_1.setBounds(10, 10, 273, 56);
-		panel_2_1_1_1_1.add(lblNewLabel_1_2_1_1_1);
+		JLabel ChickenMalvani = new JLabel("Chicken Malvani");
+		ChickenMalvani.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		ChickenMalvani.setBounds(10, 10, 273, 56);
+		panel_2_1_1_1_1.add(ChickenMalvani);
 		
 		JButton btnNewButton_1_2_1_1 = new JButton("Remove");
 		btnNewButton_1_2_1_1.setForeground(Color.WHITE);
@@ -589,15 +669,20 @@ public class Maharashtrian extends JFrame {
 		btnNewButton_1_1_1_1_1.setBounds(437, 20, 110, 36);
 		panel_2_1_1_1_1.add(btnNewButton_1_1_1_1_1);
 		
+		JLabel lblRs_6 = new JLabel("Rs.350/-");
+		lblRs_6.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_6.setBounds(325, 10, 103, 56);
+		panel_2_1_1_1_1.add(lblRs_6);
+		
 		Panel panel_2_1_2_1_1 = new Panel();
 		panel_2_1_2_1_1.setLayout(null);
 		panel_2_1_2_1_1.setBounds(744, 388, 715, 69);
 		panel_2_2.add(panel_2_1_2_1_1);
 		
-		JLabel lblNewLabel_1_2_2_1_1 = new JLabel("NAME");
-		lblNewLabel_1_2_2_1_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_1_2_2_1_1.setBounds(10, 10, 273, 56);
-		panel_2_1_2_1_1.add(lblNewLabel_1_2_2_1_1);
+		JLabel ChickenKolhapuri = new JLabel("Chicken Kolhapuri");
+		ChickenKolhapuri.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		ChickenKolhapuri.setBounds(10, 10, 273, 56);
+		panel_2_1_2_1_1.add(ChickenKolhapuri);
 		
 		JButton btnNewButton_1_3_1_1 = new JButton("Remove");
 		btnNewButton_1_3_1_1.setForeground(Color.WHITE);
@@ -613,15 +698,20 @@ public class Maharashtrian extends JFrame {
 		btnNewButton_1_1_2_1_1.setBounds(437, 20, 110, 36);
 		panel_2_1_2_1_1.add(btnNewButton_1_1_2_1_1);
 		
+		JLabel lblRs_7 = new JLabel("Rs.370/-");
+		lblRs_7.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_7.setBounds(324, 10, 103, 56);
+		panel_2_1_2_1_1.add(lblRs_7);
+		
 		Panel panel_2_1_3_1_1 = new Panel();
 		panel_2_1_3_1_1.setLayout(null);
 		panel_2_1_3_1_1.setBounds(744, 456, 715, 69);
 		panel_2_2.add(panel_2_1_3_1_1);
 		
-		JLabel lblNewLabel_1_2_3_1_1 = new JLabel("NAME");
-		lblNewLabel_1_2_3_1_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_1_2_3_1_1.setBounds(10, 10, 273, 56);
-		panel_2_1_3_1_1.add(lblNewLabel_1_2_3_1_1);
+		JLabel PrawnsMasala = new JLabel("Prawns Masala");
+		PrawnsMasala.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		PrawnsMasala.setBounds(10, 10, 273, 56);
+		panel_2_1_3_1_1.add(PrawnsMasala);
 		
 		JButton btnNewButton_1_4_1_1 = new JButton("Remove");
 		btnNewButton_1_4_1_1.setForeground(Color.WHITE);
@@ -637,15 +727,20 @@ public class Maharashtrian extends JFrame {
 		btnNewButton_1_1_3_1_1.setBounds(437, 20, 110, 36);
 		panel_2_1_3_1_1.add(btnNewButton_1_1_3_1_1);
 		
+		JLabel lblRs_8 = new JLabel("Rs.370/-");
+		lblRs_8.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_8.setBounds(324, 10, 103, 56);
+		panel_2_1_3_1_1.add(lblRs_8);
+		
 		Panel panel_2_1_4_1_1 = new Panel();
 		panel_2_1_4_1_1.setLayout(null);
 		panel_2_1_4_1_1.setBounds(744, 525, 715, 69);
 		panel_2_2.add(panel_2_1_4_1_1);
 		
-		JLabel lblNewLabel_1_2_4_1_1 = new JLabel("NAME");
-		lblNewLabel_1_2_4_1_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_1_2_4_1_1.setBounds(10, 10, 273, 56);
-		panel_2_1_4_1_1.add(lblNewLabel_1_2_4_1_1);
+		JLabel PomfretMasala = new JLabel("Pomfret Masala");
+		PomfretMasala.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		PomfretMasala.setBounds(10, 10, 273, 56);
+		panel_2_1_4_1_1.add(PomfretMasala);
 		
 		JButton btnNewButton_1_5_1_1 = new JButton("Remove");
 		btnNewButton_1_5_1_1.setForeground(Color.WHITE);
@@ -660,6 +755,11 @@ public class Maharashtrian extends JFrame {
 		btnNewButton_1_1_4_1_1.setBackground(new Color(0, 153, 51));
 		btnNewButton_1_1_4_1_1.setBounds(437, 20, 110, 36);
 		panel_2_1_4_1_1.add(btnNewButton_1_1_4_1_1);
+		
+		JLabel lblRs_9 = new JLabel("Rs.390/-");
+		lblRs_9.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		lblRs_9.setBounds(324, 10, 103, 56);
+		panel_2_1_4_1_1.add(lblRs_9);
 		
 		JButton btnNewButton_2_1 = new JButton("Order");
 		btnNewButton_2_1.addActionListener(new ActionListener() {
