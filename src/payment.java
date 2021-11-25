@@ -139,6 +139,8 @@ public class payment extends JFrame {
 				    
 				    if(r.next()){
 				    	JOptionPane.showMessageDialog(null, "Payment Done");
+				    	Invoice.main(null);
+				    	dispose();
 				          
 				    	
 				    }

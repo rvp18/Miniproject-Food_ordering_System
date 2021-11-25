@@ -87,6 +87,7 @@ public class cardDetails1 extends JFrame {
 			          pst.executeUpdate();
 			          JOptionPane.showMessageDialog(null, "Card Added");
 			          apsit.main(null);
+			          dispose();
 			        } catch (SQLException e1) {
 			          // TODO Auto-generated catch block
 			        	JOptionPane.showMessageDialog(null, "Something Went Wrong","Card",JOptionPane.ERROR_MESSAGE);
@@ -130,6 +131,7 @@ public class cardDetails1 extends JFrame {
 		btnSkip.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				apsit.main(null);
+				dispose();
 			}
 		});
 		btnSkip.setFont(new Font("Maiandra GD", Font.BOLD, 20));

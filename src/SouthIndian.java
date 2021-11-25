@@ -14,12 +14,13 @@ import javax.swing.JLabel;
 import java.awt.Panel;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
 import java.awt.event.ActionEvent;
 
 public class SouthIndian extends JFrame {
 
 	private JPanel contentPane;
-
+	String email;
 	/**
 	 * Launch the application.
 	 */
@@ -27,7 +28,7 @@ public class SouthIndian extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SouthIndian frame = new SouthIndian();
+					SouthIndian frame = new SouthIndian("");
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,17 +36,22 @@ public class SouthIndian extends JFrame {
 			}
 		});
 	}
-
+	Connection con = null;
 	/**
 	 * Create the frame.
 	 */
-	public SouthIndian() {
+	public SouthIndian(String emailId) {
+		
+		con = db.dbconnect();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(10, 20, 1500, 800);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		
+		this.email = emailId;
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.WHITE);
@@ -56,6 +62,7 @@ public class SouthIndian extends JFrame {
 		btnMaharashtrian.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Maharashtrian.main(null);
+				 dispose();
 			}
 		});
 		btnMaharashtrian.setFont(new Font("Maiandra GD", Font.BOLD, 20));
@@ -67,6 +74,7 @@ public class SouthIndian extends JFrame {
 		btnNorthindian.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				NorthIndian.main(null);
+				 dispose();
 			}
 		});
 		btnNorthindian.setFont(new Font("Maiandra GD", Font.BOLD, 20));
@@ -78,6 +86,7 @@ public class SouthIndian extends JFrame {
 		btnChinese.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Chinese.main(null);
+				 dispose();
 			}
 		});
 		btnChinese.setFont(new Font("Maiandra GD", Font.BOLD, 20));
@@ -135,26 +144,19 @@ public class SouthIndian extends JFrame {
 		
 		JLabel MasalaDosa = new JLabel("Masala Dosa");
 		MasalaDosa.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		MasalaDosa.setBounds(10, 10, 273, 56);
+		MasalaDosa.setBounds(45, 10, 273, 56);
 		panel_2_1_6_1.add(MasalaDosa);
-		
-		JButton btnNewButton_1_7_1 = new JButton("Remove");
-		btnNewButton_1_7_1.setForeground(Color.WHITE);
-		btnNewButton_1_7_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
-		btnNewButton_1_7_1.setBackground(new Color(204, 51, 0));
-		btnNewButton_1_7_1.setBounds(584, 20, 110, 36);
-		panel_2_1_6_1.add(btnNewButton_1_7_1);
 		
 		JButton btnNewButton_1_1_6_1 = new JButton("ADD");
 		btnNewButton_1_1_6_1.setForeground(Color.WHITE);
 		btnNewButton_1_1_6_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
 		btnNewButton_1_1_6_1.setBackground(new Color(0, 153, 51));
-		btnNewButton_1_1_6_1.setBounds(437, 20, 110, 36);
+		btnNewButton_1_1_6_1.setBounds(529, 22, 110, 36);
 		panel_2_1_6_1.add(btnNewButton_1_1_6_1);
 		
 		JLabel lblRs_2_1 = new JLabel("Rs.50/-");
 		lblRs_2_1.setFont(new Font("Maiandra GD", Font.BOLD, 20));
-		lblRs_2_1.setBounds(324, 10, 103, 56);
+		lblRs_2_1.setBounds(377, 8, 103, 56);
 		panel_2_1_6_1.add(lblRs_2_1);
 		
 		Panel panel_2_1_1_2_1 = new Panel();
@@ -164,26 +166,19 @@ public class SouthIndian extends JFrame {
 		
 		JLabel Uttappa = new JLabel("Uttappa");
 		Uttappa.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		Uttappa.setBounds(10, 10, 273, 56);
+		Uttappa.setBounds(45, 10, 273, 56);
 		panel_2_1_1_2_1.add(Uttappa);
-		
-		JButton btnNewButton_1_2_2_1 = new JButton("Remove");
-		btnNewButton_1_2_2_1.setForeground(Color.WHITE);
-		btnNewButton_1_2_2_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
-		btnNewButton_1_2_2_1.setBackground(new Color(204, 51, 0));
-		btnNewButton_1_2_2_1.setBounds(584, 20, 110, 36);
-		panel_2_1_1_2_1.add(btnNewButton_1_2_2_1);
 		
 		JButton btnNewButton_1_1_1_2_1 = new JButton("ADD");
 		btnNewButton_1_1_1_2_1.setForeground(Color.WHITE);
 		btnNewButton_1_1_1_2_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
 		btnNewButton_1_1_1_2_1.setBackground(new Color(0, 153, 51));
-		btnNewButton_1_1_1_2_1.setBounds(437, 20, 110, 36);
+		btnNewButton_1_1_1_2_1.setBounds(529, 22, 110, 36);
 		panel_2_1_1_2_1.add(btnNewButton_1_1_1_2_1);
 		
 		JLabel lblRs_2_1_1 = new JLabel("Rs.70/-");
 		lblRs_2_1_1.setFont(new Font("Maiandra GD", Font.BOLD, 20));
-		lblRs_2_1_1.setBounds(324, 10, 103, 56);
+		lblRs_2_1_1.setBounds(377, 8, 103, 56);
 		panel_2_1_1_2_1.add(lblRs_2_1_1);
 		
 		Panel panel_2_1_2_2_1 = new Panel();
@@ -193,26 +188,19 @@ public class SouthIndian extends JFrame {
 		
 		JLabel Idli = new JLabel("Idli Sambar");
 		Idli.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		Idli.setBounds(10, 10, 273, 56);
+		Idli.setBounds(45, 10, 273, 56);
 		panel_2_1_2_2_1.add(Idli);
-		
-		JButton btnNewButton_1_3_2_1 = new JButton("Remove");
-		btnNewButton_1_3_2_1.setForeground(Color.WHITE);
-		btnNewButton_1_3_2_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
-		btnNewButton_1_3_2_1.setBackground(new Color(204, 51, 0));
-		btnNewButton_1_3_2_1.setBounds(584, 20, 110, 36);
-		panel_2_1_2_2_1.add(btnNewButton_1_3_2_1);
 		
 		JButton btnNewButton_1_1_2_2_1 = new JButton("ADD");
 		btnNewButton_1_1_2_2_1.setForeground(Color.WHITE);
 		btnNewButton_1_1_2_2_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
 		btnNewButton_1_1_2_2_1.setBackground(new Color(0, 153, 51));
-		btnNewButton_1_1_2_2_1.setBounds(437, 20, 110, 36);
+		btnNewButton_1_1_2_2_1.setBounds(529, 22, 110, 36);
 		panel_2_1_2_2_1.add(btnNewButton_1_1_2_2_1);
 		
 		JLabel lblRs_2_1_2 = new JLabel("Rs.70/-");
 		lblRs_2_1_2.setFont(new Font("Maiandra GD", Font.BOLD, 20));
-		lblRs_2_1_2.setBounds(324, 10, 103, 56);
+		lblRs_2_1_2.setBounds(377, 8, 103, 56);
 		panel_2_1_2_2_1.add(lblRs_2_1_2);
 		
 		Panel panel_2_1_3_2_1 = new Panel();
@@ -222,26 +210,19 @@ public class SouthIndian extends JFrame {
 		
 		JLabel lblNewLabel_1_2_3_2_1 = new JLabel("Meduvada");
 		lblNewLabel_1_2_3_2_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_1_2_3_2_1.setBounds(10, 10, 273, 56);
+		lblNewLabel_1_2_3_2_1.setBounds(45, 10, 273, 56);
 		panel_2_1_3_2_1.add(lblNewLabel_1_2_3_2_1);
-		
-		JButton btnNewButton_1_4_2_1 = new JButton("Remove");
-		btnNewButton_1_4_2_1.setForeground(Color.WHITE);
-		btnNewButton_1_4_2_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
-		btnNewButton_1_4_2_1.setBackground(new Color(204, 51, 0));
-		btnNewButton_1_4_2_1.setBounds(584, 20, 110, 36);
-		panel_2_1_3_2_1.add(btnNewButton_1_4_2_1);
 		
 		JButton btnNewButton_1_1_3_2_1 = new JButton("ADD");
 		btnNewButton_1_1_3_2_1.setForeground(Color.WHITE);
 		btnNewButton_1_1_3_2_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
 		btnNewButton_1_1_3_2_1.setBackground(new Color(0, 153, 51));
-		btnNewButton_1_1_3_2_1.setBounds(437, 20, 110, 36);
+		btnNewButton_1_1_3_2_1.setBounds(529, 22, 110, 36);
 		panel_2_1_3_2_1.add(btnNewButton_1_1_3_2_1);
 		
 		JLabel lblRs_2_1_3 = new JLabel("Rs.80/-");
 		lblRs_2_1_3.setFont(new Font("Maiandra GD", Font.BOLD, 20));
-		lblRs_2_1_3.setBounds(324, 10, 103, 56);
+		lblRs_2_1_3.setBounds(377, 8, 103, 56);
 		panel_2_1_3_2_1.add(lblRs_2_1_3);
 		
 		Panel panel_2_1_4_2_1 = new Panel();
@@ -251,26 +232,19 @@ public class SouthIndian extends JFrame {
 		
 		JLabel CoconutBarfi = new JLabel("Coconut Barfi");
 		CoconutBarfi.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		CoconutBarfi.setBounds(10, 10, 273, 56);
+		CoconutBarfi.setBounds(45, 10, 273, 56);
 		panel_2_1_4_2_1.add(CoconutBarfi);
-		
-		JButton btnNewButton_1_5_2_1 = new JButton("Remove");
-		btnNewButton_1_5_2_1.setForeground(Color.WHITE);
-		btnNewButton_1_5_2_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
-		btnNewButton_1_5_2_1.setBackground(new Color(204, 51, 0));
-		btnNewButton_1_5_2_1.setBounds(584, 20, 110, 36);
-		panel_2_1_4_2_1.add(btnNewButton_1_5_2_1);
 		
 		JButton btnNewButton_1_1_4_2_1 = new JButton("ADD");
 		btnNewButton_1_1_4_2_1.setForeground(Color.WHITE);
 		btnNewButton_1_1_4_2_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
 		btnNewButton_1_1_4_2_1.setBackground(new Color(0, 153, 51));
-		btnNewButton_1_1_4_2_1.setBounds(437, 20, 110, 36);
+		btnNewButton_1_1_4_2_1.setBounds(529, 22, 110, 36);
 		panel_2_1_4_2_1.add(btnNewButton_1_1_4_2_1);
 		
 		JLabel lblRs_2_1_4 = new JLabel("Rs.70/-");
 		lblRs_2_1_4.setFont(new Font("Maiandra GD", Font.BOLD, 20));
-		lblRs_2_1_4.setBounds(324, 10, 103, 56);
+		lblRs_2_1_4.setBounds(377, 8, 103, 56);
 		panel_2_1_4_2_1.add(lblRs_2_1_4);
 		
 		Panel panel_2_1_5_1_1 = new Panel();
@@ -280,26 +254,19 @@ public class SouthIndian extends JFrame {
 		
 		JLabel KeralaChickenRoast = new JLabel("Kerala Chicken Roast");
 		KeralaChickenRoast.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		KeralaChickenRoast.setBounds(10, 10, 273, 56);
+		KeralaChickenRoast.setBounds(45, 10, 273, 56);
 		panel_2_1_5_1_1.add(KeralaChickenRoast);
-		
-		JButton btnNewButton_1_6_1_1 = new JButton("Remove");
-		btnNewButton_1_6_1_1.setForeground(Color.WHITE);
-		btnNewButton_1_6_1_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
-		btnNewButton_1_6_1_1.setBackground(new Color(204, 51, 0));
-		btnNewButton_1_6_1_1.setBounds(584, 20, 110, 36);
-		panel_2_1_5_1_1.add(btnNewButton_1_6_1_1);
 		
 		JButton btnNewButton_1_1_5_1_1 = new JButton("ADD");
 		btnNewButton_1_1_5_1_1.setForeground(Color.WHITE);
 		btnNewButton_1_1_5_1_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
 		btnNewButton_1_1_5_1_1.setBackground(new Color(0, 153, 51));
-		btnNewButton_1_1_5_1_1.setBounds(437, 20, 110, 36);
+		btnNewButton_1_1_5_1_1.setBounds(529, 22, 110, 36);
 		panel_2_1_5_1_1.add(btnNewButton_1_1_5_1_1);
 		
 		JLabel lblRs_2_1_5 = new JLabel("Rs.150/-");
 		lblRs_2_1_5.setFont(new Font("Maiandra GD", Font.BOLD, 20));
-		lblRs_2_1_5.setBounds(324, 10, 103, 56);
+		lblRs_2_1_5.setBounds(377, 8, 103, 56);
 		panel_2_1_5_1_1.add(lblRs_2_1_5);
 		
 		Panel panel_2_1_1_1_1_1 = new Panel();
@@ -309,26 +276,19 @@ public class SouthIndian extends JFrame {
 		
 		JLabel PayyoliChickenFry = new JLabel("Payyoli Chicken Fry");
 		PayyoliChickenFry.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		PayyoliChickenFry.setBounds(10, 10, 273, 56);
+		PayyoliChickenFry.setBounds(45, 10, 273, 56);
 		panel_2_1_1_1_1_1.add(PayyoliChickenFry);
-		
-		JButton btnNewButton_1_2_1_1_1 = new JButton("Remove");
-		btnNewButton_1_2_1_1_1.setForeground(Color.WHITE);
-		btnNewButton_1_2_1_1_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
-		btnNewButton_1_2_1_1_1.setBackground(new Color(204, 51, 0));
-		btnNewButton_1_2_1_1_1.setBounds(584, 20, 110, 36);
-		panel_2_1_1_1_1_1.add(btnNewButton_1_2_1_1_1);
 		
 		JButton btnNewButton_1_1_1_1_1_1 = new JButton("ADD");
 		btnNewButton_1_1_1_1_1_1.setForeground(Color.WHITE);
 		btnNewButton_1_1_1_1_1_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
 		btnNewButton_1_1_1_1_1_1.setBackground(new Color(0, 153, 51));
-		btnNewButton_1_1_1_1_1_1.setBounds(437, 20, 110, 36);
+		btnNewButton_1_1_1_1_1_1.setBounds(529, 22, 110, 36);
 		panel_2_1_1_1_1_1.add(btnNewButton_1_1_1_1_1_1);
 		
 		JLabel lblRs_2_1_6 = new JLabel("Rs.170/-");
 		lblRs_2_1_6.setFont(new Font("Maiandra GD", Font.BOLD, 20));
-		lblRs_2_1_6.setBounds(324, 10, 103, 56);
+		lblRs_2_1_6.setBounds(377, 8, 103, 56);
 		panel_2_1_1_1_1_1.add(lblRs_2_1_6);
 		
 		Panel panel_2_1_2_1_1_1 = new Panel();
@@ -338,26 +298,19 @@ public class SouthIndian extends JFrame {
 		
 		JLabel SquidFry = new JLabel("Squid Fry");
 		SquidFry.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		SquidFry.setBounds(10, 10, 273, 56);
+		SquidFry.setBounds(45, 10, 273, 56);
 		panel_2_1_2_1_1_1.add(SquidFry);
-		
-		JButton btnNewButton_1_3_1_1_1 = new JButton("Remove");
-		btnNewButton_1_3_1_1_1.setForeground(Color.WHITE);
-		btnNewButton_1_3_1_1_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
-		btnNewButton_1_3_1_1_1.setBackground(new Color(204, 51, 0));
-		btnNewButton_1_3_1_1_1.setBounds(584, 20, 110, 36);
-		panel_2_1_2_1_1_1.add(btnNewButton_1_3_1_1_1);
 		
 		JButton btnNewButton_1_1_2_1_1_1 = new JButton("ADD");
 		btnNewButton_1_1_2_1_1_1.setForeground(Color.WHITE);
 		btnNewButton_1_1_2_1_1_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
 		btnNewButton_1_1_2_1_1_1.setBackground(new Color(0, 153, 51));
-		btnNewButton_1_1_2_1_1_1.setBounds(437, 20, 110, 36);
+		btnNewButton_1_1_2_1_1_1.setBounds(529, 22, 110, 36);
 		panel_2_1_2_1_1_1.add(btnNewButton_1_1_2_1_1_1);
 		
 		JLabel lblRs_2_1_7 = new JLabel("Rs.170/-");
 		lblRs_2_1_7.setFont(new Font("Maiandra GD", Font.BOLD, 20));
-		lblRs_2_1_7.setBounds(324, 10, 103, 56);
+		lblRs_2_1_7.setBounds(377, 8, 103, 56);
 		panel_2_1_2_1_1_1.add(lblRs_2_1_7);
 		
 		Panel panel_2_1_3_1_1_1 = new Panel();
@@ -367,26 +320,19 @@ public class SouthIndian extends JFrame {
 		
 		JLabel KaneRavaFry = new JLabel("Kane Rava Fry");
 		KaneRavaFry.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		KaneRavaFry.setBounds(10, 10, 273, 56);
+		KaneRavaFry.setBounds(45, 10, 273, 56);
 		panel_2_1_3_1_1_1.add(KaneRavaFry);
-		
-		JButton btnNewButton_1_4_1_1_1 = new JButton("Remove");
-		btnNewButton_1_4_1_1_1.setForeground(Color.WHITE);
-		btnNewButton_1_4_1_1_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
-		btnNewButton_1_4_1_1_1.setBackground(new Color(204, 51, 0));
-		btnNewButton_1_4_1_1_1.setBounds(584, 20, 110, 36);
-		panel_2_1_3_1_1_1.add(btnNewButton_1_4_1_1_1);
 		
 		JButton btnNewButton_1_1_3_1_1_1 = new JButton("ADD");
 		btnNewButton_1_1_3_1_1_1.setForeground(Color.WHITE);
 		btnNewButton_1_1_3_1_1_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
 		btnNewButton_1_1_3_1_1_1.setBackground(new Color(0, 153, 51));
-		btnNewButton_1_1_3_1_1_1.setBounds(437, 20, 110, 36);
+		btnNewButton_1_1_3_1_1_1.setBounds(529, 22, 110, 36);
 		panel_2_1_3_1_1_1.add(btnNewButton_1_1_3_1_1_1);
 		
 		JLabel lblRs_2_1_8 = new JLabel("Rs.200/-");
 		lblRs_2_1_8.setFont(new Font("Maiandra GD", Font.BOLD, 20));
-		lblRs_2_1_8.setBounds(324, 10, 103, 56);
+		lblRs_2_1_8.setBounds(377, 8, 103, 56);
 		panel_2_1_3_1_1_1.add(lblRs_2_1_8);
 		
 		Panel panel_2_1_4_1_1_1 = new Panel();
@@ -396,26 +342,19 @@ public class SouthIndian extends JFrame {
 		
 		JLabel ChickenNizami = new JLabel("Chicken Nizami");
 		ChickenNizami.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		ChickenNizami.setBounds(10, 10, 273, 56);
+		ChickenNizami.setBounds(45, 10, 273, 56);
 		panel_2_1_4_1_1_1.add(ChickenNizami);
-		
-		JButton btnNewButton_1_5_1_1_1 = new JButton("Remove");
-		btnNewButton_1_5_1_1_1.setForeground(Color.WHITE);
-		btnNewButton_1_5_1_1_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
-		btnNewButton_1_5_1_1_1.setBackground(new Color(204, 51, 0));
-		btnNewButton_1_5_1_1_1.setBounds(584, 20, 110, 36);
-		panel_2_1_4_1_1_1.add(btnNewButton_1_5_1_1_1);
 		
 		JButton btnNewButton_1_1_4_1_1_1 = new JButton("ADD");
 		btnNewButton_1_1_4_1_1_1.setForeground(Color.WHITE);
 		btnNewButton_1_1_4_1_1_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
 		btnNewButton_1_1_4_1_1_1.setBackground(new Color(0, 153, 51));
-		btnNewButton_1_1_4_1_1_1.setBounds(437, 20, 110, 36);
+		btnNewButton_1_1_4_1_1_1.setBounds(529, 22, 110, 36);
 		panel_2_1_4_1_1_1.add(btnNewButton_1_1_4_1_1_1);
 		
 		JLabel lblRs_2_1_9 = new JLabel("Rs.220/-");
 		lblRs_2_1_9.setFont(new Font("Maiandra GD", Font.BOLD, 20));
-		lblRs_2_1_9.setBounds(324, 10, 103, 56);
+		lblRs_2_1_9.setBounds(377, 8, 103, 56);
 		panel_2_1_4_1_1_1.add(lblRs_2_1_9);
 		
 		JButton btnNewButton_2_1 = new JButton("Order");
@@ -482,28 +421,21 @@ public class SouthIndian extends JFrame {
 		panel_2_1_6.setBounds(10, 238, 715, 69);
 		panel_2_2.add(panel_2_1_6);
 		
-		JLabel lblNewLabel_1_2_6 = new JLabel("");
-		lblNewLabel_1_2_6.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_1_2_6.setBounds(10, 10, 273, 56);
-		panel_2_1_6.add(lblNewLabel_1_2_6);
-		
-		JButton btnNewButton_1_7 = new JButton("Remove");
-		btnNewButton_1_7.setForeground(Color.WHITE);
-		btnNewButton_1_7.setFont(new Font("Maiandra GD", Font.BOLD, 15));
-		btnNewButton_1_7.setBackground(new Color(204, 51, 0));
-		btnNewButton_1_7.setBounds(584, 20, 110, 36);
-		panel_2_1_6.add(btnNewButton_1_7);
+		JLabel Pesarattu = new JLabel("Pesarattu");
+		Pesarattu.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		Pesarattu.setBounds(45, 10, 273, 56);
+		panel_2_1_6.add(Pesarattu);
 		
 		JButton btnNewButton_1_1_6 = new JButton("ADD");
 		btnNewButton_1_1_6.setForeground(Color.WHITE);
 		btnNewButton_1_1_6.setFont(new Font("Maiandra GD", Font.BOLD, 15));
 		btnNewButton_1_1_6.setBackground(new Color(0, 153, 51));
-		btnNewButton_1_1_6.setBounds(437, 20, 110, 36);
+		btnNewButton_1_1_6.setBounds(529, 22, 110, 36);
 		panel_2_1_6.add(btnNewButton_1_1_6);
 		
-		JLabel lblRs_2_1_10 = new JLabel("Rs.50/-");
+		JLabel lblRs_2_1_10 = new JLabel("Rs.150/-");
 		lblRs_2_1_10.setFont(new Font("Maiandra GD", Font.BOLD, 20));
-		lblRs_2_1_10.setBounds(324, 10, 103, 56);
+		lblRs_2_1_10.setBounds(377, 8, 103, 56);
 		panel_2_1_6.add(lblRs_2_1_10);
 		
 		Panel panel_2_1_1_2 = new Panel();
@@ -511,28 +443,21 @@ public class SouthIndian extends JFrame {
 		panel_2_1_1_2.setBounds(10, 307, 715, 69);
 		panel_2_2.add(panel_2_1_1_2);
 		
-		JLabel lblNewLabel_1_2_1_2 = new JLabel("NAME");
-		lblNewLabel_1_2_1_2.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_1_2_1_2.setBounds(10, 10, 273, 56);
-		panel_2_1_1_2.add(lblNewLabel_1_2_1_2);
-		
-		JButton btnNewButton_1_2_2 = new JButton("Remove");
-		btnNewButton_1_2_2.setForeground(Color.WHITE);
-		btnNewButton_1_2_2.setFont(new Font("Maiandra GD", Font.BOLD, 15));
-		btnNewButton_1_2_2.setBackground(new Color(204, 51, 0));
-		btnNewButton_1_2_2.setBounds(584, 20, 110, 36);
-		panel_2_1_1_2.add(btnNewButton_1_2_2);
+		JLabel PuliodarRice = new JLabel("Puliodar Rice");
+		PuliodarRice.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		PuliodarRice.setBounds(45, 10, 273, 56);
+		panel_2_1_1_2.add(PuliodarRice);
 		
 		JButton btnNewButton_1_1_1_2 = new JButton("ADD");
 		btnNewButton_1_1_1_2.setForeground(Color.WHITE);
 		btnNewButton_1_1_1_2.setFont(new Font("Maiandra GD", Font.BOLD, 15));
 		btnNewButton_1_1_1_2.setBackground(new Color(0, 153, 51));
-		btnNewButton_1_1_1_2.setBounds(437, 20, 110, 36);
+		btnNewButton_1_1_1_2.setBounds(529, 22, 110, 36);
 		panel_2_1_1_2.add(btnNewButton_1_1_1_2);
 		
-		JLabel lblRs_2_1_11 = new JLabel("Rs.50/-");
+		JLabel lblRs_2_1_11 = new JLabel("Rs.170/-");
 		lblRs_2_1_11.setFont(new Font("Maiandra GD", Font.BOLD, 20));
-		lblRs_2_1_11.setBounds(324, 10, 103, 56);
+		lblRs_2_1_11.setBounds(377, 8, 103, 56);
 		panel_2_1_1_2.add(lblRs_2_1_11);
 		
 		Panel panel_2_1_2_2 = new Panel();
@@ -540,28 +465,21 @@ public class SouthIndian extends JFrame {
 		panel_2_1_2_2.setBounds(10, 376, 715, 69);
 		panel_2_2.add(panel_2_1_2_2);
 		
-		JLabel lblNewLabel_1_2_2_2 = new JLabel("NAME");
-		lblNewLabel_1_2_2_2.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_1_2_2_2.setBounds(10, 10, 273, 56);
-		panel_2_1_2_2.add(lblNewLabel_1_2_2_2);
-		
-		JButton btnNewButton_1_3_2 = new JButton("Remove");
-		btnNewButton_1_3_2.setForeground(Color.WHITE);
-		btnNewButton_1_3_2.setFont(new Font("Maiandra GD", Font.BOLD, 15));
-		btnNewButton_1_3_2.setBackground(new Color(204, 51, 0));
-		btnNewButton_1_3_2.setBounds(584, 20, 110, 36);
-		panel_2_1_2_2.add(btnNewButton_1_3_2);
+		JLabel TomotoGojju = new JLabel("Tomoto Gojju");
+		TomotoGojju.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		TomotoGojju.setBounds(45, 10, 273, 56);
+		panel_2_1_2_2.add(TomotoGojju);
 		
 		JButton btnNewButton_1_1_2_2 = new JButton("ADD");
 		btnNewButton_1_1_2_2.setForeground(Color.WHITE);
 		btnNewButton_1_1_2_2.setFont(new Font("Maiandra GD", Font.BOLD, 15));
 		btnNewButton_1_1_2_2.setBackground(new Color(0, 153, 51));
-		btnNewButton_1_1_2_2.setBounds(437, 20, 110, 36);
+		btnNewButton_1_1_2_2.setBounds(529, 22, 110, 36);
 		panel_2_1_2_2.add(btnNewButton_1_1_2_2);
 		
-		JLabel lblRs_2_1_12 = new JLabel("Rs.50/-");
+		JLabel lblRs_2_1_12 = new JLabel("Rs.180/-");
 		lblRs_2_1_12.setFont(new Font("Maiandra GD", Font.BOLD, 20));
-		lblRs_2_1_12.setBounds(324, 10, 103, 56);
+		lblRs_2_1_12.setBounds(377, 8, 103, 56);
 		panel_2_1_2_2.add(lblRs_2_1_12);
 		
 		Panel panel_2_1_3_2 = new Panel();
@@ -569,28 +487,21 @@ public class SouthIndian extends JFrame {
 		panel_2_1_3_2.setBounds(10, 444, 715, 69);
 		panel_2_2.add(panel_2_1_3_2);
 		
-		JLabel lblNewLabel_1_2_3_2 = new JLabel("NAME");
-		lblNewLabel_1_2_3_2.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_1_2_3_2.setBounds(10, 10, 273, 56);
-		panel_2_1_3_2.add(lblNewLabel_1_2_3_2);
-		
-		JButton btnNewButton_1_4_2 = new JButton("Remove");
-		btnNewButton_1_4_2.setForeground(Color.WHITE);
-		btnNewButton_1_4_2.setFont(new Font("Maiandra GD", Font.BOLD, 15));
-		btnNewButton_1_4_2.setBackground(new Color(204, 51, 0));
-		btnNewButton_1_4_2.setBounds(584, 20, 110, 36);
-		panel_2_1_3_2.add(btnNewButton_1_4_2);
+		JLabel MoreKuzhambu = new JLabel("More Kuzhambu");
+		MoreKuzhambu.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		MoreKuzhambu.setBounds(45, 10, 273, 56);
+		panel_2_1_3_2.add(MoreKuzhambu);
 		
 		JButton btnNewButton_1_1_3_2 = new JButton("ADD");
 		btnNewButton_1_1_3_2.setForeground(Color.WHITE);
 		btnNewButton_1_1_3_2.setFont(new Font("Maiandra GD", Font.BOLD, 15));
 		btnNewButton_1_1_3_2.setBackground(new Color(0, 153, 51));
-		btnNewButton_1_1_3_2.setBounds(437, 20, 110, 36);
+		btnNewButton_1_1_3_2.setBounds(529, 22, 110, 36);
 		panel_2_1_3_2.add(btnNewButton_1_1_3_2);
 		
-		JLabel lblRs_2_1_13 = new JLabel("Rs.50/-");
+		JLabel lblRs_2_1_13 = new JLabel("Rs.200/-");
 		lblRs_2_1_13.setFont(new Font("Maiandra GD", Font.BOLD, 20));
-		lblRs_2_1_13.setBounds(324, 10, 103, 56);
+		lblRs_2_1_13.setBounds(377, 8, 103, 56);
 		panel_2_1_3_2.add(lblRs_2_1_13);
 		
 		Panel panel_2_1_4_2 = new Panel();
@@ -598,28 +509,21 @@ public class SouthIndian extends JFrame {
 		panel_2_1_4_2.setBounds(10, 513, 715, 69);
 		panel_2_2.add(panel_2_1_4_2);
 		
-		JLabel lblNewLabel_1_2_4_2 = new JLabel("NAME");
-		lblNewLabel_1_2_4_2.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_1_2_4_2.setBounds(10, 10, 273, 56);
-		panel_2_1_4_2.add(lblNewLabel_1_2_4_2);
-		
-		JButton btnNewButton_1_5_2 = new JButton("Remove");
-		btnNewButton_1_5_2.setForeground(Color.WHITE);
-		btnNewButton_1_5_2.setFont(new Font("Maiandra GD", Font.BOLD, 15));
-		btnNewButton_1_5_2.setBackground(new Color(204, 51, 0));
-		btnNewButton_1_5_2.setBounds(584, 20, 110, 36);
-		panel_2_1_4_2.add(btnNewButton_1_5_2);
+		JLabel PongalKootu = new JLabel("Pongal Kootu");
+		PongalKootu.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		PongalKootu.setBounds(45, 10, 273, 56);
+		panel_2_1_4_2.add(PongalKootu);
 		
 		JButton btnNewButton_1_1_4_2 = new JButton("ADD");
 		btnNewButton_1_1_4_2.setForeground(Color.WHITE);
 		btnNewButton_1_1_4_2.setFont(new Font("Maiandra GD", Font.BOLD, 15));
 		btnNewButton_1_1_4_2.setBackground(new Color(0, 153, 51));
-		btnNewButton_1_1_4_2.setBounds(437, 20, 110, 36);
+		btnNewButton_1_1_4_2.setBounds(529, 22, 110, 36);
 		panel_2_1_4_2.add(btnNewButton_1_1_4_2);
 		
-		JLabel lblRs_2_1_14 = new JLabel("Rs.50/-");
+		JLabel lblRs_2_1_14 = new JLabel("Rs.220/-");
 		lblRs_2_1_14.setFont(new Font("Maiandra GD", Font.BOLD, 20));
-		lblRs_2_1_14.setBounds(324, 10, 103, 56);
+		lblRs_2_1_14.setBounds(377, 8, 103, 56);
 		panel_2_1_4_2.add(lblRs_2_1_14);
 		
 		Panel panel_2_1_5_1 = new Panel();
@@ -627,28 +531,21 @@ public class SouthIndian extends JFrame {
 		panel_2_1_5_1.setBounds(744, 238, 715, 69);
 		panel_2_2.add(panel_2_1_5_1);
 		
-		JLabel lblNewLabel_1_2_5_1 = new JLabel("NAME");
-		lblNewLabel_1_2_5_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_1_2_5_1.setBounds(10, 10, 273, 56);
-		panel_2_1_5_1.add(lblNewLabel_1_2_5_1);
-		
-		JButton btnNewButton_1_6_1 = new JButton("Remove");
-		btnNewButton_1_6_1.setForeground(Color.WHITE);
-		btnNewButton_1_6_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
-		btnNewButton_1_6_1.setBackground(new Color(204, 51, 0));
-		btnNewButton_1_6_1.setBounds(584, 20, 110, 36);
-		panel_2_1_5_1.add(btnNewButton_1_6_1);
+		JLabel ChickenChettinad = new JLabel("Chicken Chettinad");
+		ChickenChettinad.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		ChickenChettinad.setBounds(45, 10, 273, 56);
+		panel_2_1_5_1.add(ChickenChettinad);
 		
 		JButton btnNewButton_1_1_5_1 = new JButton("ADD");
 		btnNewButton_1_1_5_1.setForeground(Color.WHITE);
 		btnNewButton_1_1_5_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
 		btnNewButton_1_1_5_1.setBackground(new Color(0, 153, 51));
-		btnNewButton_1_1_5_1.setBounds(437, 20, 110, 36);
+		btnNewButton_1_1_5_1.setBounds(529, 22, 110, 36);
 		panel_2_1_5_1.add(btnNewButton_1_1_5_1);
 		
-		JLabel lblRs_2_1_15 = new JLabel("Rs.50/-");
+		JLabel lblRs_2_1_15 = new JLabel("Rs.250/-");
 		lblRs_2_1_15.setFont(new Font("Maiandra GD", Font.BOLD, 20));
-		lblRs_2_1_15.setBounds(324, 10, 103, 56);
+		lblRs_2_1_15.setBounds(377, 8, 103, 56);
 		panel_2_1_5_1.add(lblRs_2_1_15);
 		
 		Panel panel_2_1_1_1_1 = new Panel();
@@ -656,28 +553,21 @@ public class SouthIndian extends JFrame {
 		panel_2_1_1_1_1.setBounds(744, 307, 715, 69);
 		panel_2_2.add(panel_2_1_1_1_1);
 		
-		JLabel lblNewLabel_1_2_1_1_1 = new JLabel("NAME");
-		lblNewLabel_1_2_1_1_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_1_2_1_1_1.setBounds(10, 10, 273, 56);
-		panel_2_1_1_1_1.add(lblNewLabel_1_2_1_1_1);
-		
-		JButton btnNewButton_1_2_1_1 = new JButton("Remove");
-		btnNewButton_1_2_1_1.setForeground(Color.WHITE);
-		btnNewButton_1_2_1_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
-		btnNewButton_1_2_1_1.setBackground(new Color(204, 51, 0));
-		btnNewButton_1_2_1_1.setBounds(584, 20, 110, 36);
-		panel_2_1_1_1_1.add(btnNewButton_1_2_1_1);
+		JLabel AilaCurry = new JLabel("Aila Curry");
+		AilaCurry.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		AilaCurry.setBounds(45, 10, 273, 56);
+		panel_2_1_1_1_1.add(AilaCurry);
 		
 		JButton btnNewButton_1_1_1_1_1 = new JButton("ADD");
 		btnNewButton_1_1_1_1_1.setForeground(Color.WHITE);
 		btnNewButton_1_1_1_1_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
 		btnNewButton_1_1_1_1_1.setBackground(new Color(0, 153, 51));
-		btnNewButton_1_1_1_1_1.setBounds(437, 20, 110, 36);
+		btnNewButton_1_1_1_1_1.setBounds(529, 22, 110, 36);
 		panel_2_1_1_1_1.add(btnNewButton_1_1_1_1_1);
 		
-		JLabel lblRs_2_1_16 = new JLabel("Rs.50/-");
+		JLabel lblRs_2_1_16 = new JLabel("Rs.250/-");
 		lblRs_2_1_16.setFont(new Font("Maiandra GD", Font.BOLD, 20));
-		lblRs_2_1_16.setBounds(324, 10, 103, 56);
+		lblRs_2_1_16.setBounds(377, 8, 103, 56);
 		panel_2_1_1_1_1.add(lblRs_2_1_16);
 		
 		Panel panel_2_1_2_1_1 = new Panel();
@@ -685,28 +575,21 @@ public class SouthIndian extends JFrame {
 		panel_2_1_2_1_1.setBounds(744, 376, 715, 69);
 		panel_2_2.add(panel_2_1_2_1_1);
 		
-		JLabel lblNewLabel_1_2_2_1_1 = new JLabel("NAME");
-		lblNewLabel_1_2_2_1_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_1_2_2_1_1.setBounds(10, 10, 273, 56);
-		panel_2_1_2_1_1.add(lblNewLabel_1_2_2_1_1);
-		
-		JButton btnNewButton_1_3_1_1 = new JButton("Remove");
-		btnNewButton_1_3_1_1.setForeground(Color.WHITE);
-		btnNewButton_1_3_1_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
-		btnNewButton_1_3_1_1.setBackground(new Color(204, 51, 0));
-		btnNewButton_1_3_1_1.setBounds(584, 20, 110, 36);
-		panel_2_1_2_1_1.add(btnNewButton_1_3_1_1);
+		JLabel SquidCurry = new JLabel("Squid Curry");
+		SquidCurry.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		SquidCurry.setBounds(45, 10, 273, 56);
+		panel_2_1_2_1_1.add(SquidCurry);
 		
 		JButton btnNewButton_1_1_2_1_1 = new JButton("ADD");
 		btnNewButton_1_1_2_1_1.setForeground(Color.WHITE);
 		btnNewButton_1_1_2_1_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
 		btnNewButton_1_1_2_1_1.setBackground(new Color(0, 153, 51));
-		btnNewButton_1_1_2_1_1.setBounds(437, 20, 110, 36);
+		btnNewButton_1_1_2_1_1.setBounds(529, 22, 110, 36);
 		panel_2_1_2_1_1.add(btnNewButton_1_1_2_1_1);
 		
-		JLabel lblRs_2_1_17 = new JLabel("Rs.50/-");
+		JLabel lblRs_2_1_17 = new JLabel("Rs.280/-");
 		lblRs_2_1_17.setFont(new Font("Maiandra GD", Font.BOLD, 20));
-		lblRs_2_1_17.setBounds(324, 10, 103, 56);
+		lblRs_2_1_17.setBounds(377, 8, 103, 56);
 		panel_2_1_2_1_1.add(lblRs_2_1_17);
 		
 		Panel panel_2_1_3_1_1 = new Panel();
@@ -714,28 +597,21 @@ public class SouthIndian extends JFrame {
 		panel_2_1_3_1_1.setBounds(744, 444, 715, 69);
 		panel_2_2.add(panel_2_1_3_1_1);
 		
-		JLabel lblNewLabel_1_2_3_1_1 = new JLabel("NAME");
-		lblNewLabel_1_2_3_1_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_1_2_3_1_1.setBounds(10, 10, 273, 56);
-		panel_2_1_3_1_1.add(lblNewLabel_1_2_3_1_1);
-		
-		JButton btnNewButton_1_4_1_1 = new JButton("Remove");
-		btnNewButton_1_4_1_1.setForeground(Color.WHITE);
-		btnNewButton_1_4_1_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
-		btnNewButton_1_4_1_1.setBackground(new Color(204, 51, 0));
-		btnNewButton_1_4_1_1.setBounds(584, 20, 110, 36);
-		panel_2_1_3_1_1.add(btnNewButton_1_4_1_1);
+		JLabel ChickenSalna = new JLabel("Chicken Salna ");
+		ChickenSalna.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		ChickenSalna.setBounds(45, 10, 273, 56);
+		panel_2_1_3_1_1.add(ChickenSalna);
 		
 		JButton btnNewButton_1_1_3_1_1 = new JButton("ADD");
 		btnNewButton_1_1_3_1_1.setForeground(Color.WHITE);
 		btnNewButton_1_1_3_1_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
 		btnNewButton_1_1_3_1_1.setBackground(new Color(0, 153, 51));
-		btnNewButton_1_1_3_1_1.setBounds(437, 20, 110, 36);
+		btnNewButton_1_1_3_1_1.setBounds(529, 22, 110, 36);
 		panel_2_1_3_1_1.add(btnNewButton_1_1_3_1_1);
 		
-		JLabel lblRs_2_1_18 = new JLabel("Rs.50/-");
+		JLabel lblRs_2_1_18 = new JLabel("Rs.280/-");
 		lblRs_2_1_18.setFont(new Font("Maiandra GD", Font.BOLD, 20));
-		lblRs_2_1_18.setBounds(324, 10, 103, 56);
+		lblRs_2_1_18.setBounds(377, 8, 103, 56);
 		panel_2_1_3_1_1.add(lblRs_2_1_18);
 		
 		Panel panel_2_1_4_1_1 = new Panel();
@@ -743,34 +619,28 @@ public class SouthIndian extends JFrame {
 		panel_2_1_4_1_1.setBounds(744, 513, 715, 69);
 		panel_2_2.add(panel_2_1_4_1_1);
 		
-		JLabel lblNewLabel_1_2_4_1_1 = new JLabel("NAME");
-		lblNewLabel_1_2_4_1_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_1_2_4_1_1.setBounds(10, 10, 273, 56);
-		panel_2_1_4_1_1.add(lblNewLabel_1_2_4_1_1);
-		
-		JButton btnNewButton_1_5_1_1 = new JButton("Remove");
-		btnNewButton_1_5_1_1.setForeground(Color.WHITE);
-		btnNewButton_1_5_1_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
-		btnNewButton_1_5_1_1.setBackground(new Color(204, 51, 0));
-		btnNewButton_1_5_1_1.setBounds(584, 20, 110, 36);
-		panel_2_1_4_1_1.add(btnNewButton_1_5_1_1);
+		JLabel HydrabadiChickenBiriyani = new JLabel("Hydrabadi Chicken Biriyani");
+		HydrabadiChickenBiriyani.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		HydrabadiChickenBiriyani.setBounds(45, 10, 273, 56);
+		panel_2_1_4_1_1.add(HydrabadiChickenBiriyani);
 		
 		JButton btnNewButton_1_1_4_1_1 = new JButton("ADD");
 		btnNewButton_1_1_4_1_1.setForeground(Color.WHITE);
 		btnNewButton_1_1_4_1_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
 		btnNewButton_1_1_4_1_1.setBackground(new Color(0, 153, 51));
-		btnNewButton_1_1_4_1_1.setBounds(437, 20, 110, 36);
+		btnNewButton_1_1_4_1_1.setBounds(529, 22, 110, 36);
 		panel_2_1_4_1_1.add(btnNewButton_1_1_4_1_1);
 		
-		JLabel lblRs_2_1_19 = new JLabel("Rs.50/-");
+		JLabel lblRs_2_1_19 = new JLabel("Rs.300/-");
 		lblRs_2_1_19.setFont(new Font("Maiandra GD", Font.BOLD, 20));
-		lblRs_2_1_19.setBounds(324, 10, 103, 56);
+		lblRs_2_1_19.setBounds(377, 8, 103, 56);
 		panel_2_1_4_1_1.add(lblRs_2_1_19);
 		
 		JButton btnNewButton_2 = new JButton("Order");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Orderdetails.main(null);
+				 dispose();
 			}
 		});
 		btnNewButton_2.setFont(new Font("Maiandra GD", Font.BOLD, 30));

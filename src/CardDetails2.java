@@ -5,6 +5,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -12,6 +14,9 @@ import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import com.toedter.calendar.JMonthChooser;
 import com.toedter.calendar.JYearChooser;
@@ -19,8 +24,9 @@ import com.toedter.calendar.JYearChooser;
 public class CardDetails2 extends JFrame {
 
 	private JPanel contentPane;
-	private JPasswordField passwordField;
-	private JTextField textField_1;
+	private JPasswordField CardNumber;
+	private JTextField Expiry_Month;
+	private JTextField ExpiryYear;
 
 	/**
 	 * Launch the application.
@@ -36,12 +42,17 @@ public class CardDetails2 extends JFrame {
 				}
 			}
 		});
+		
+		
 	}
-
+	Connection con=null;
 	/**
 	 * Create the frame.
 	 */
 	public CardDetails2() {
+		
+		con=db.dbconnect();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(10, 20, 1500, 800);
 		contentPane = new JPanel();
@@ -61,34 +72,41 @@ public class CardDetails2 extends JFrame {
 		
 		JLabel lblNewLabel_1 = new JLabel("Card Number");
 		lblNewLabel_1.setFont(new Font("Maiandra GD", Font.BOLD, 28));
-		lblNewLabel_1.setBounds(425, 293, 268, 53);
+		lblNewLabel_1.setBounds(426, 234, 268, 53);
 		panel_1.add(lblNewLabel_1);
 		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(425, 333, 580, 44);
-		panel_1.add(passwordField);
+		CardNumber = new JPasswordField();
+		CardNumber.setBounds(426, 297, 580, 44);
+		panel_1.add(CardNumber);
 		
-		JLabel lblNewLabel_2 = new JLabel("Expiry Date");
-		lblNewLabel_2.setFont(new Font("Maiandra GD", Font.BOLD, 28));
-		lblNewLabel_2.setBounds(425, 397, 212, 44);
-		panel_1.add(lblNewLabel_2);
-		
-		JButton btnSave = new JButton("Add Your Card");
+		JButton btnSave = new JButton("Add Your Card & Proceed to Pay");
+		btnSave.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String CardNumber1= CardNumber.getText();
+				String ExpiryMonth= Expiry_Month.getText();
+				String Expiryyear= ExpiryYear.getText();
+				
+				try {
+			          PreparedStatement pst=(PreparedStatement)con.prepareStatement("insert into carddetails(CardNumber,ExpiryMonth,ExpiryYear) values(?,?,?)");
+			          pst.setString(1, CardNumber1);
+			          pst.setString(2, ExpiryMonth);
+			          pst.setString(3, Expiryyear);
+			          
+			          pst.executeUpdate();
+			          JOptionPane.showMessageDialog(null, "Card Added , Now Proceed to Pay");
+			          payment.main(null);
+			          dispose();
+			        } catch (SQLException e1) {
+			          // TODO Auto-generated catch block
+			        	JOptionPane.showMessageDialog(null, "Something Went Wrong","Card",JOptionPane.ERROR_MESSAGE);
+			          e1.printStackTrace();
+			        }
+			}
+		});
 		btnSave.setFont(new Font("Maiandra GD", Font.BOLD, 20));
 		btnSave.setBackground(new Color(255, 204, 102));
-		btnSave.setBounds(611, 524, 201, 60);
+		btnSave.setBounds(498, 523, 425, 60);
 		panel_1.add(btnSave);
-		
-		JLabel lblNewLabel_1_1 = new JLabel("Name:");
-		lblNewLabel_1_1.setFont(new Font("Maiandra GD", Font.BOLD, 28));
-		lblNewLabel_1_1.setBounds(425, 178, 268, 53);
-		panel_1.add(lblNewLabel_1_1);
-		
-		textField_1 = new JTextField();
-		textField_1.setFont(new Font("Consolas", Font.BOLD, 20));
-		textField_1.setColumns(10);
-		textField_1.setBounds(425, 226, 580, 44);
-		panel_1.add(textField_1);
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(CardDetails2.class.getResource("/Images/card-security.png")));
@@ -99,6 +117,7 @@ public class CardDetails2 extends JFrame {
 		btnBack_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Orderdetails.main(null);
+				dispose();
 			}
 		});
 		btnBack_1.setIcon(new ImageIcon(CardDetails2.class.getResource("/Images/back 3.png")));
@@ -107,13 +126,19 @@ public class CardDetails2 extends JFrame {
 		btnBack_1.setBounds(59, 598, 101, 80);
 		panel_1.add(btnBack_1);
 		
-		JMonthChooser monthChooser = new JMonthChooser();
-		monthChooser.getComboBox().setFont(new Font("Maiandra GD", Font.BOLD, 15));
-		monthChooser.setBounds(425, 451, 119, 36);
-		panel_1.add(monthChooser);
+		Expiry_Month = new JTextField();
+		Expiry_Month.setColumns(10);
+		Expiry_Month.setBounds(426, 450, 162, 44);
+		panel_1.add(Expiry_Month);
 		
-		JYearChooser yearChooser = new JYearChooser();
-		yearChooser.setBounds(554, 451, 64, 36);
-		panel_1.add(yearChooser);
+		ExpiryYear = new JTextField();
+		ExpiryYear.setColumns(10);
+		ExpiryYear.setBounds(598, 450, 122, 44);
+		panel_1.add(ExpiryYear);
+		
+		JLabel ExpiryDateText = new JLabel("Expiry Date (MM/YY)");
+		ExpiryDateText.setFont(new Font("Maiandra GD", Font.BOLD, 28));
+		ExpiryDateText.setBounds(425, 395, 295, 34);
+		panel_1.add(ExpiryDateText);
 	}
 }
