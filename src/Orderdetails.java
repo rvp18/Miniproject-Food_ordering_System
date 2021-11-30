@@ -32,15 +32,22 @@ import net.proteanit.sql.DbUtils;
 
 public class Orderdetails extends JFrame {
 
+	String total = "";
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField Name;
+	private JTextField add;
+	private JTextField pincode;
+	private JTextField ph_no;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JTable table;
 
 	String email;
+	String pym_meth;
 
 	/**
 	 * Launch the application.
@@ -66,6 +73,7 @@ public class Orderdetails extends JFrame {
 	}
 
 	Connection con = null;
+	private JTextField itemidtoremove;
 
 	/**
 	 * Create the frame.
@@ -105,46 +113,44 @@ public class Orderdetails extends JFrame {
 		lblNewLabel_1.setBounds(10, 92, 76, 37);
 		panel_1.add(lblNewLabel_1);
 
-		textField = new JTextField();
-		textField.setBounds(10, 124, 745, 37);
-		panel_1.add(textField);
-		textField.setColumns(10);
+		Name = new JTextField();
+		Name.setFont(new Font("Consolas", Font.BOLD, 20));
+		Name.setBounds(10, 124, 745, 50);
+		panel_1.add(Name);
+		Name.setColumns(10);
 
 		JLabel lblNewLabel_1_1 = new JLabel("Address:");
 		lblNewLabel_1_1.setFont(new Font("Maiandra GD", Font.BOLD, 20));
-		lblNewLabel_1_1.setBounds(10, 171, 148, 37);
+		lblNewLabel_1_1.setBounds(10, 200, 148, 37);
 		panel_1.add(lblNewLabel_1_1);
 
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(10, 202, 745, 96);
-		panel_1.add(textField_1);
+		add = new JTextField();
+		add.setFont(new Font("Consolas", Font.BOLD, 20));
+		add.setColumns(10);
+		add.setBounds(10, 237, 745, 50);
+		panel_1.add(add);
 
 		JLabel lblNewLabel_1_1_1 = new JLabel("Pincode:");
 		lblNewLabel_1_1_1.setFont(new Font("Maiandra GD", Font.BOLD, 20));
 		lblNewLabel_1_1_1.setBounds(10, 311, 148, 37);
 		panel_1.add(lblNewLabel_1_1_1);
 
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(10, 347, 172, 50);
-		panel_1.add(textField_2);
+		pincode = new JTextField();
+		pincode.setFont(new Font("Consolas", Font.BOLD, 20));
+		pincode.setColumns(10);
+		pincode.setBounds(10, 347, 172, 50);
+		panel_1.add(pincode);
 
 		JLabel lblNewLabel_1_1_1_1 = new JLabel("Phone No.");
 		lblNewLabel_1_1_1_1.setFont(new Font("Maiandra GD", Font.BOLD, 20));
 		lblNewLabel_1_1_1_1.setBounds(213, 311, 148, 37);
 		panel_1.add(lblNewLabel_1_1_1_1);
 
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(216, 347, 352, 50);
-		panel_1.add(textField_3);
-
-		JButton btnNewButton_1 = new JButton("Apply Coupon");
-		btnNewButton_1.setFont(new Font("Maiandra GD", Font.BOLD, 20));
-		btnNewButton_1.setBackground(new Color(255, 204, 51));
-		btnNewButton_1.setBounds(329, 556, 187, 68);
-		panel_1.add(btnNewButton_1);
+		ph_no = new JTextField();
+		ph_no.setFont(new Font("Consolas", Font.BOLD, 20));
+		ph_no.setColumns(10);
+		ph_no.setBounds(216, 347, 352, 50);
+		panel_1.add(ph_no);
 
 		JRadioButton COD = new JRadioButton("COD");
 		buttonGroup.add(COD);
@@ -161,12 +167,48 @@ public class Orderdetails extends JFrame {
 		JButton btnNewButton_1_1 = new JButton("Order");
 		btnNewButton_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String name = Name.getText();
+				String address = add.getText();
+				String pc = pincode.getText();
+				String phno = ph_no.getText();
 
 				if (COD.isSelected() == true) {
-					Invoice.main(null);
+
+					pym_meth = "COD";
+				} else if (PayByCard.isSelected()) {
+
+					pym_meth = "Card";
+				}
+
+				else {
+				}
+
+				try {
+					PreparedStatement pst = con.prepareStatement(
+							"insert into customeraddress(Email,Name,Address,Pincode,PhoneNo,PaymentMethod) values(?,?,?,?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, name);
+					pst.setString(3, address);
+					pst.setString(4, pc);
+					pst.setString(5, phno);
+					pst.setString(6, pym_meth);
+					pst.executeUpdate();
+					JOptionPane.showMessageDialog(null, "Procceding your Payment");
+
+					dispose();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					JOptionPane.showMessageDialog(null, "Something Went Wrong", "Order", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+
+				if (COD.isSelected() == true) {
+					Invoice ivp = new Invoice(email);
+					ivp.setVisible(true);
 					dispose();
 				} else if (PayByCard.isSelected()) {
-					CardDetails2.main(null);
+					CardDetails2 cdp = new CardDetails2(email);
+					cdp.setVisible(true);
 					dispose();
 				}
 
@@ -178,7 +220,7 @@ public class Orderdetails extends JFrame {
 		});
 		btnNewButton_1_1.setFont(new Font("Maiandra GD", Font.BOLD, 25));
 		btnNewButton_1_1.setBackground(new Color(0, 204, 0));
-		btnNewButton_1_1.setBounds(63, 554, 180, 68);
+		btnNewButton_1_1.setBounds(64, 552, 180, 68);
 		panel_1.add(btnNewButton_1_1);
 
 		JLabel lblNewLabel_3 = new JLabel("Order Details:");
@@ -189,6 +231,9 @@ public class Orderdetails extends JFrame {
 		JButton btnBack_1 = new JButton("");
 		btnBack_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Home hp = new Home(email);
+				hp.setVisible(true);
+				dispose();
 			}
 		});
 		btnBack_1.setIcon(new ImageIcon(Orderdetails.class.getResource("/Images/back 3.png")));
@@ -204,7 +249,7 @@ public class Orderdetails extends JFrame {
 		table = new JTable();
 
 		try {
-			String query = "SELECT Name,Price FROM tempaddeditems WHERE Email=? ";
+			String query = "SELECT itemid,Name,Price FROM tempaddeditems WHERE Email=? ";
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setString(1, email);
 
@@ -215,40 +260,170 @@ public class Orderdetails extends JFrame {
 
 			e1.printStackTrace();
 		}
-//		DefaultTableModel dtm;
-////		dtm=setModel
-//		table.setModel(dtm);
 
 		scrollPane.setViewportView(table);
 
-		JLabel totaltext = new JLabel("Total");
+		JLabel totaltext = new JLabel("Total:");
 		totaltext.setFont(new Font("Maiandra GD", Font.BOLD, 30));
-		totaltext.setBounds(24, 581, 455, 49);
+		totaltext.setBounds(241, 580, 85, 49);
 		panel.add(totaltext);
-		
-		
-		ResultSet rs;
-		String total = "";
-//		try {
-//			String query = "SELECT SUM(Price) AS 'Total' FROM tempaddeditems WHERE Email=? ";
-//			PreparedStatement pst = con.prepareStatement(query);
-//			pst.setString(1, email);
-//
-//			 rs = pst.executeQuery();
-//			
-//			
-//			total=rs.getString(123);
-//
-//		} catch (SQLException e1) {
-//
-//			e1.printStackTrace();
-//		}
 
-		JLabel totalPrice = new JLabel(total);
-		totalPrice.setBounds(496, 580, 130, 39);
+		try {
+			String query = "SELECT sum(Price+(Price/100)*18) FROM tempaddeditems";
+			PreparedStatement pst = con.prepareStatement(query);
+			ResultSet rs = pst.executeQuery();
+
+			if (rs.next()) {
+
+				total = rs.getString("sum(Price+(Price/100)*18)");
+
+//				total=total+(total*18/100);
+
+			}
+
+		} catch (SQLException e1) {
+
+			e1.printStackTrace();
+		}
+
+		JLabel totalPrice = new JLabel("");
+		totalPrice.setFont(new Font("Maiandra GD", Font.BOLD, 25));
+		totalPrice.setBounds(325, 580, 133, 49);
 		panel.add(totalPrice);
+
+		totalPrice.setText(total);
+
+		itemidtoremove = new JTextField();
+		itemidtoremove.setFont(new Font("Consolas", Font.BOLD, 20));
+		itemidtoremove.setBounds(192, 682, 152, 49);
+		panel.add(itemidtoremove);
+		itemidtoremove.setColumns(10);
+
+		JLabel lblNewLabel_2 = new JLabel("ItemID:");
+		lblNewLabel_2.setFont(new Font("Maiandra GD", Font.BOLD, 25));
+		lblNewLabel_2.setBounds(192, 638, 152, 34);
+		panel.add(lblNewLabel_2);
+
+		JButton btnNewButton_1_1_1 = new JButton("Remove");
+		btnNewButton_1_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String item = itemidtoremove.getText();
+				try {
+					String query = "DELETE FROM tempaddeditems WHERE itemid=?";
+					PreparedStatement pst = con.prepareStatement(query);
+
+					pst.setString(1, item);
+
+					pst.executeUpdate();
+
+					JOptionPane.showMessageDialog(null, "Item Removed");
+
+				} catch (SQLException e1) {
+
+					e1.printStackTrace();
+				}
+
+				try {
+					String query = "DELETE FROM finalorder WHERE itemid=?";
+					PreparedStatement pst = con.prepareStatement(query);
+
+					pst.setString(1, item);
+
+					pst.executeUpdate();
+
+				} catch (SQLException e1) {
+
+					e1.printStackTrace();
+				}
+
+				try {
+					String query = "SELECT itemid,Name,Price FROM tempaddeditems WHERE Email=? ";
+					PreparedStatement pst = con.prepareStatement(query);
+					pst.setString(1, email);
+
+					ResultSet rs = pst.executeQuery();
+					table.setModel(DbUtils.resultSetToTableModel(rs));
+
+				} catch (SQLException e1) {
+
+					e1.printStackTrace();
+				}
+
+				try {
+					String query = "SELECT sum(Price+(Price/100)*18) FROM tempaddeditems;";
+					PreparedStatement pst = con.prepareStatement(query);
+					ResultSet rs = pst.executeQuery();
+
+					if (rs.next()) {
+
+						total = rs.getString("sum(Price+(Price/100)*18)");
+
+						totalPrice.setText(total);
+
+					}
+
+				} catch (SQLException e1) {
+
+					e1.printStackTrace();
+				}
+
+			}
+		});
+		btnNewButton_1_1_1.setFont(new Font("Maiandra GD", Font.BOLD, 25));
+		btnNewButton_1_1_1.setBackground(new Color(255, 102, 102));
+		btnNewButton_1_1_1.setBounds(368, 682, 136, 49);
+		panel.add(btnNewButton_1_1_1);
+
+		JLabel lblNewLabel_4 = new JLabel("(18% GST ADDED)");
+		lblNewLabel_4.setFont(new Font("Maiandra GD", Font.BOLD, 15));
+		lblNewLabel_4.setBounds(468, 605, 143, 24);
+		panel.add(lblNewLabel_4);
+
+		JButton btnNewButton_1_1_2 = new JButton("APPLY COUPON");
+		btnNewButton_1_1_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				double coupon = Double.parseDouble(total);
+
+				if (500 <= coupon && coupon < 1000) {
+					coupon -= 50.00;
+				} else if (coupon >= 1000.00) {
+					coupon -= 100.00;
+				} else {
+					JOptionPane.showMessageDialog(null, "Offer not applicable");
+				}
+
+				btnNewButton_1_1_2.setEnabled(false);
+				btnNewButton_1_1_2.setBackground(new Color(105, 105, 105));
+
+				try {
+					String query = "SELECT sum(Price+(Price/100)*18) FROM tempaddeditems;";
+					PreparedStatement pst = con.prepareStatement(query);
+					ResultSet rs = pst.executeQuery();
+
+					if (rs.next()) {
+
+						total = rs.getString("sum(Price+(Price/100)*18)");
+
+						String s = String.valueOf(coupon);
+
+						totalPrice.setText(s);
+
+					}
+
+				} catch (SQLException e1) {
+
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnNewButton_1_1_2.setFont(new Font("Maiandra GD", Font.BOLD, 25));
+		btnNewButton_1_1_2.setBackground(Color.ORANGE);
+		btnNewButton_1_1_2.setBounds(305, 552, 274, 68);
+		panel_1.add(btnNewButton_1_1_2);
 	}
 
+	@SuppressWarnings("unused")
 	private static void addPopup(Component component, final JPopupMenu popup) {
 		component.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {

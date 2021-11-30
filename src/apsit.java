@@ -43,24 +43,13 @@ public class apsit {
 
 	}
 
+	Connection con = null;
+
 	/**
 	 * Create the application.
 	 */
 	public apsit() {
-		initialize();
-
-	}
-
-	Connection con = null;
-
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-	    
 		con = db.dbconnect();
-		
 
 		frame = new JFrame("APSITO");
 		frame.setForeground(Color.CYAN);
@@ -78,14 +67,13 @@ public class apsit {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				ResultSet r= null;
-				PreparedStatement pst=null;
+				ResultSet r = null;
+				PreparedStatement pst = null;
 				try {
 					String password = String.valueOf(passwordField.getPassword());
 					String email = textemail.getText();
 
-					pst = (PreparedStatement) con
-							.prepareStatement("select * from user where Email=? and Password=?");
+					pst = (PreparedStatement) con.prepareStatement("select * from user where Email=? and Password=?");
 					pst.setString(1, email);
 					pst.setString(2, password);
 
@@ -96,18 +84,21 @@ public class apsit {
 						if (email.contains("@admin")) {
 
 							Admin.main(null);
+							frame.dispose();
 
 						} else {
 							Home homepage = new Home(email);
 							homepage.setVisible(true);
-
-//				    		dispose();
+							frame.dispose();
 
 						}
-					} else {
+						
+					} else 
+					{
 						JOptionPane.showMessageDialog(null, "Wrong Email or Password");
 						passwordField.setText(null);
 						textemail.setText(null);
+
 					}
 
 				} catch (Exception e1) {
@@ -116,7 +107,7 @@ public class apsit {
 				} finally {
 
 					try {
-						
+
 						r.close();
 						pst.close();
 						con.close();
@@ -125,7 +116,6 @@ public class apsit {
 					}
 
 				}
-
 
 			}
 		});
@@ -147,6 +137,7 @@ public class apsit {
 		panel.add(lblPassword);
 
 		textemail = new JTextField();
+		textemail.setFont(new Font("Consolas", Font.BOLD, 20));
 		textemail.setBounds(542, 301, 524, 49);
 		panel.add(textemail);
 		textemail.setColumns(10);
@@ -166,6 +157,7 @@ public class apsit {
 		btnSignUp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				RegistrationPage.main(null);
+				frame.dispose();
 			}
 		});
 		btnSignUp.setForeground(Color.BLACK);
@@ -174,8 +166,10 @@ public class apsit {
 		panel.add(btnSignUp);
 
 		passwordField = new JPasswordField();
+		passwordField.setFont(new Font("Consolas", Font.BOLD, 20));
 		passwordField.setBounds(542, 404, 524, 49);
 		panel.add(passwordField);
 
 	}
+
 }

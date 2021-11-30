@@ -1,31 +1,35 @@
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
 import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.Font;
-import javax.swing.JTabbedPane;
-import javax.swing.JSeparator;
-import javax.swing.SwingConstants;
-import javax.swing.JSplitPane;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTextPane;
-import javax.swing.ImageIcon;
 import java.awt.Panel;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.awt.event.ActionEvent;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JSeparator;
+import javax.swing.JTabbedPane;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 
 public class Maharashtrian extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
+	 * 
+	 */
+	
 	private JPanel contentPane;
 	public String email;
 //	List<String> selectedItems = new ArrayList<String>();
@@ -83,7 +87,8 @@ public class Maharashtrian extends JFrame {
 		JButton btnNorthindian = new JButton("North-Indian");
 		btnNorthindian.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				NorthIndian.main(null);
+				NorthIndian nip = new NorthIndian(email);
+				nip.setVisible(true);
 				dispose();
 			}
 		});
@@ -95,7 +100,8 @@ public class Maharashtrian extends JFrame {
 		JButton btnSouthindian = new JButton("South-Indian");
 		btnSouthindian.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				SouthIndian.main(null);
+				SouthIndian sip = new SouthIndian(email);
+				sip.setVisible(true);
 				dispose();
 			}
 		});
@@ -107,8 +113,8 @@ public class Maharashtrian extends JFrame {
 		JButton btnChinese = new JButton("Chinese");
 		btnChinese.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Chinese.main(null);
-				dispose();
+				Chinese cp = new Chinese(email);
+				cp.setVisible(true);
 			}
 		});
 		btnChinese.setFont(new Font("Maiandra GD", Font.BOLD, 20));
@@ -128,26 +134,21 @@ public class Maharashtrian extends JFrame {
 		JSeparator separator = new JSeparator();
 		separator.setBackground(Color.BLACK);
 		separator.setOrientation(SwingConstants.VERTICAL);
-		separator.setBounds(731, 46, 10, 526);
+		separator.setBounds(731, 63, 10, 509);
 		panel_2.add(separator);
 
-		JLabel lblNewLabel = new JLabel("Veg");
+		JLabel lblNewLabel = new JLabel("Starters");
 		lblNewLabel.setFont(new Font("Maiandra GD", Font.BOLD, 35));
-		lblNewLabel.setBounds(324, -13, 95, 90);
+		lblNewLabel.setBounds(670, -15, 200, 90);
 		panel_2.add(lblNewLabel);
 
-		JLabel lblNonveg = new JLabel("Non-Veg");
-		lblNonveg.setFont(new Font("Maiandra GD", Font.BOLD, 35));
-		lblNonveg.setBounds(1033, -13, 172, 90);
-		panel_2.add(lblNonveg);
-
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(Maharashtrian.class.getResource("/Images/5_6120515004539077834.png")));
+		lblNewLabel_1.setIcon(new ImageIcon(Maharashtrian.class.getResource("/Images/veg maha.jpg")));
 		lblNewLabel_1.setBounds(27, 62, 688, 163);
 		panel_2.add(lblNewLabel_1);
 
 		JLabel lblNewLabel_1_1 = new JLabel("");
-		lblNewLabel_1_1.setIcon(new ImageIcon(Maharashtrian.class.getResource("/Images/5_6120515004539077831.jpg")));
+		lblNewLabel_1_1.setIcon(new ImageIcon(Maharashtrian.class.getResource("/Images/non-veg maha.jpg")));
 		lblNewLabel_1_1.setBounds(751, 62, 688, 163);
 		panel_2.add(lblNewLabel_1_1);
 
@@ -169,7 +170,8 @@ public class Maharashtrian extends JFrame {
 				int price = 50;
 
 				try {
-					PreparedStatement pst = con.prepareStatement("insert into tempaddeditems(Email,Name,Price) values(?,?,?)");
+					PreparedStatement pst = con
+							.prepareStatement("insert into tempaddeditems(Email,Name,Price) values(?,?,?)");
 					pst.setString(1, email);
 					pst.setString(2, item);
 					pst.setInt(3, price);
@@ -182,15 +184,15 @@ public class Maharashtrian extends JFrame {
 					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
 					e1.printStackTrace();
 				}
-				
+
 				try {
-					PreparedStatement pst = con.prepareStatement("insert into finalorder(Email,Name,Price) values(?,?,?)");
+					PreparedStatement pst = con
+							.prepareStatement("insert into finalorder(Email,Name,Price) values(?,?,?)");
 					pst.setString(1, email);
 					pst.setString(2, item);
 					pst.setInt(3, price);
 
 					pst.executeUpdate();
-					JOptionPane.showMessageDialog(null, "Item added to Order List Successfully");
 
 				} catch (SQLException e1) {
 
@@ -233,18 +235,33 @@ public class Maharashtrian extends JFrame {
 				int price = 60;
 
 				try {
-					PreparedStatement pst = (PreparedStatement) con
+					PreparedStatement pst = con
 							.prepareStatement("insert into tempaddeditems(Email,Name,Price) values(?,?,?)");
 					pst.setString(1, email);
 					pst.setString(2, item);
 					pst.setInt(3, price);
 
 					pst.executeUpdate();
-					JOptionPane.showMessageDialog(null, "Item added to Cart Successfully");
+					JOptionPane.showMessageDialog(null, "Item added to Order List Successfully");
 
 				} catch (SQLException e1) {
 
-					JOptionPane.showMessageDialog(null, "Something Wrong", "Cart", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into finalorder(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
 					e1.printStackTrace();
 				}
 //				selectedItems.add("Mix Bhaji");
@@ -278,18 +295,33 @@ public class Maharashtrian extends JFrame {
 				int price = 70;
 
 				try {
-					PreparedStatement pst = (PreparedStatement) con
+					PreparedStatement pst = con
 							.prepareStatement("insert into tempaddeditems(Email,Name,Price) values(?,?,?)");
 					pst.setString(1, email);
 					pst.setString(2, item);
 					pst.setInt(3, price);
 
 					pst.executeUpdate();
-					JOptionPane.showMessageDialog(null, "Item added to Cart Successfully");
+					JOptionPane.showMessageDialog(null, "Item added to Order List Successfully");
 
 				} catch (SQLException e1) {
 
-					JOptionPane.showMessageDialog(null, "Something Wrong", "Cart", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into finalorder(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
 					e1.printStackTrace();
 				}
 //				selectedItems.add("Moog Vada");
@@ -318,17 +350,33 @@ public class Maharashtrian extends JFrame {
 				int price = 80;
 
 				try {
-					PreparedStatement pst = (PreparedStatement) con
+					PreparedStatement pst = con
 							.prepareStatement("insert into tempaddeditems(Email,Name,Price) values(?,?,?)");
 					pst.setString(1, email);
 					pst.setString(2, item);
 					pst.setInt(3, price);
+
 					pst.executeUpdate();
-					JOptionPane.showMessageDialog(null, "Item added to Cart Successfully");
+					JOptionPane.showMessageDialog(null, "Item added to Order List Successfully");
 
 				} catch (SQLException e1) {
 
-					JOptionPane.showMessageDialog(null, "Something Wrong", "Cart", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into finalorder(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
 					e1.printStackTrace();
 				}
 			}
@@ -366,18 +414,33 @@ public class Maharashtrian extends JFrame {
 				int price = 100;
 
 				try {
-					PreparedStatement pst = (PreparedStatement) con
+					PreparedStatement pst = con
 							.prepareStatement("insert into tempaddeditems(Email,Name,Price) values(?,?,?)");
 					pst.setString(1, email);
 					pst.setString(2, item);
 					pst.setInt(3, price);
 
 					pst.executeUpdate();
-					JOptionPane.showMessageDialog(null, "Item added to Cart Successfully");
+					JOptionPane.showMessageDialog(null, "Item added to Order List Successfully");
 
 				} catch (SQLException e1) {
 
-					JOptionPane.showMessageDialog(null, "Something Wrong", "Cart", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into finalorder(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
 					e1.printStackTrace();
 				}
 			}
@@ -399,6 +462,43 @@ public class Maharashtrian extends JFrame {
 		panel_2_1_5.add(ChickenFry);
 
 		JButton btnNewButton_1_1_5 = new JButton("ADD");
+		btnNewButton_1_1_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String item = ChickenFry.getText();
+				int price = 150;
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into tempaddeditems(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+					JOptionPane.showMessageDialog(null, "Item added to Order List Successfully");
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into finalorder(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+			}
+		});
 		btnNewButton_1_1_5.setForeground(Color.WHITE);
 		btnNewButton_1_1_5.setFont(new Font("Maiandra GD", Font.BOLD, 15));
 		btnNewButton_1_1_5.setBackground(new Color(0, 153, 51));
@@ -421,6 +521,43 @@ public class Maharashtrian extends JFrame {
 		panel_2_1_1_1.add(MuttonFry);
 
 		JButton btnNewButton_1_1_1_1 = new JButton("ADD");
+		btnNewButton_1_1_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String item = MuttonFry.getText();
+				int price = 150;
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into tempaddeditems(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+					JOptionPane.showMessageDialog(null, "Item added to Order List Successfully");
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into finalorder(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+			}
+		});
 		btnNewButton_1_1_1_1.setForeground(Color.WHITE);
 		btnNewButton_1_1_1_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
 		btnNewButton_1_1_1_1.setBackground(new Color(0, 153, 51));
@@ -443,6 +580,43 @@ public class Maharashtrian extends JFrame {
 		panel_2_1_2_1.add(PrawnsFry);
 
 		JButton btnNewButton_1_1_2_1 = new JButton("ADD");
+		btnNewButton_1_1_2_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String item = PrawnsFry.getText();
+				int price = 170;
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into tempaddeditems(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+					JOptionPane.showMessageDialog(null, "Item added to Order List Successfully");
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into finalorder(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+			}
+		});
 		btnNewButton_1_1_2_1.setForeground(Color.WHITE);
 		btnNewButton_1_1_2_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
 		btnNewButton_1_1_2_1.setBackground(new Color(0, 153, 51));
@@ -465,6 +639,43 @@ public class Maharashtrian extends JFrame {
 		panel_2_1_3_1.add(SurmaiFry);
 
 		JButton btnNewButton_1_1_3_1 = new JButton("ADD");
+		btnNewButton_1_1_3_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String item = SurmaiFry.getText();
+				int price = 180;
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into tempaddeditems(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+					JOptionPane.showMessageDialog(null, "Item added to Order List Successfully");
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into finalorder(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+			}
+		});
 		btnNewButton_1_1_3_1.setForeground(Color.WHITE);
 		btnNewButton_1_1_3_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
 		btnNewButton_1_1_3_1.setBackground(new Color(0, 153, 51));
@@ -487,6 +698,43 @@ public class Maharashtrian extends JFrame {
 		panel_2_1_4_1.add(PomfretFry);
 
 		JButton btnNewButton_1_1_4_1 = new JButton("ADD");
+		btnNewButton_1_1_4_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String item = PomfretFry.getText();
+				int price = 200;
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into tempaddeditems(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+					JOptionPane.showMessageDialog(null, "Item added to Order List Successfully");
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into finalorder(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+			}
+		});
 		btnNewButton_1_1_4_1.setForeground(Color.WHITE);
 		btnNewButton_1_1_4_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
 		btnNewButton_1_1_4_1.setBackground(new Color(0, 153, 51));
@@ -501,11 +749,10 @@ public class Maharashtrian extends JFrame {
 		JButton btnNewButton_2 = new JButton("Order");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				Orderdetails odp = new Orderdetails(email);
 				odp.setVisible(true);
 
-//				Orderdetails.main(null);
 				dispose();
 			}
 		});
@@ -517,7 +764,8 @@ public class Maharashtrian extends JFrame {
 		JButton btnBack_1 = new JButton("");
 		btnBack_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Home.main(null);
+				Home hp = new Home(email);
+				hp.setVisible(true);
 				dispose();
 			}
 		});
@@ -543,23 +791,13 @@ public class Maharashtrian extends JFrame {
 		separator_1.setBounds(735, 210, 10, 384);
 		panel_2_2.add(separator_1);
 
-		JLabel lblNewLabel_2 = new JLabel("Veg");
-		lblNewLabel_2.setFont(new Font("Maiandra GD", Font.BOLD, 35));
-		lblNewLabel_2.setBounds(323, -12, 95, 90);
-		panel_2_2.add(lblNewLabel_2);
-
-		JLabel lblNonveg_1 = new JLabel("Non-Veg");
-		lblNonveg_1.setFont(new Font("Maiandra GD", Font.BOLD, 35));
-		lblNonveg_1.setBounds(1034, -12, 172, 90);
-		panel_2_2.add(lblNonveg_1);
-
 		JLabel lblNewLabel_1_3 = new JLabel("");
-		lblNewLabel_1_3.setIcon(new ImageIcon(Maharashtrian.class.getResource("/Images/off2.jpg")));
+		lblNewLabel_1_3.setIcon(new ImageIcon(Maharashtrian.class.getResource("/Images/veg maha.jpg")));
 		lblNewLabel_1_3.setBounds(33, 65, 688, 163);
 		panel_2_2.add(lblNewLabel_1_3);
 
 		JLabel lblNewLabel_1_1_1 = new JLabel("");
-		lblNewLabel_1_1_1.setIcon(new ImageIcon(Maharashtrian.class.getResource("/Images/off2.jpg")));
+		lblNewLabel_1_1_1.setIcon(new ImageIcon(Maharashtrian.class.getResource("/Images/non-veg maha.jpg")));
 		lblNewLabel_1_1_1.setBounds(763, 65, 688, 163);
 		panel_2_2.add(lblNewLabel_1_1_1);
 
@@ -567,13 +805,6 @@ public class Maharashtrian extends JFrame {
 		panel_2_1_6.setLayout(null);
 		panel_2_1_6.setBounds(10, 250, 715, 69);
 		panel_2_2.add(panel_2_1_6);
-
-		JButton btnNewButton_1_1_6 = new JButton("ADD");
-		btnNewButton_1_1_6.setForeground(Color.WHITE);
-		btnNewButton_1_1_6.setFont(new Font("Maiandra GD", Font.BOLD, 15));
-		btnNewButton_1_1_6.setBackground(new Color(0, 153, 51));
-		btnNewButton_1_1_6.setBounds(529, 22, 110, 36);
-		panel_2_1_6.add(btnNewButton_1_1_6);
 
 		JLabel DalFry = new JLabel("Dal Fry");
 		DalFry.setFont(new Font("Maiandra GD", Font.BOLD, 20));
@@ -585,17 +816,55 @@ public class Maharashtrian extends JFrame {
 		lblRs_4.setBounds(377, 8, 103, 56);
 		panel_2_1_6.add(lblRs_4);
 
+		JButton btnNewButton_1_1_6 = new JButton("ADD");
+		btnNewButton_1_1_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String item = DalFry.getText();
+				int price = 130;
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into tempaddeditems(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+					JOptionPane.showMessageDialog(null, "Item added to Order List Successfully");
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into finalorder(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+
+			}
+		});
+		btnNewButton_1_1_6.setForeground(Color.WHITE);
+		btnNewButton_1_1_6.setFont(new Font("Maiandra GD", Font.BOLD, 15));
+		btnNewButton_1_1_6.setBackground(new Color(0, 153, 51));
+		btnNewButton_1_1_6.setBounds(529, 22, 110, 36);
+		panel_2_1_6.add(btnNewButton_1_1_6);
+
 		Panel panel_2_1_1_2 = new Panel();
 		panel_2_1_1_2.setLayout(null);
 		panel_2_1_1_2.setBounds(10, 319, 715, 69);
 		panel_2_2.add(panel_2_1_1_2);
-
-		JButton btnNewButton_1_1_1_2 = new JButton("ADD");
-		btnNewButton_1_1_1_2.setForeground(Color.WHITE);
-		btnNewButton_1_1_1_2.setFont(new Font("Maiandra GD", Font.BOLD, 15));
-		btnNewButton_1_1_1_2.setBackground(new Color(0, 153, 51));
-		btnNewButton_1_1_1_2.setBounds(529, 22, 110, 36);
-		panel_2_1_1_2.add(btnNewButton_1_1_1_2);
 
 		JLabel lblRs_3 = new JLabel("Rs.150/-");
 		lblRs_3.setBounds(377, 8, 103, 56);
@@ -607,17 +876,54 @@ public class Maharashtrian extends JFrame {
 		panel_2_1_1_2.add(VegThali);
 		VegThali.setFont(new Font("Maiandra GD", Font.BOLD, 20));
 
+		JButton btnNewButton_1_1_1_2 = new JButton("ADD");
+		btnNewButton_1_1_1_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String item = VegThali.getText();
+				int price = 150;
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into tempaddeditems(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+					JOptionPane.showMessageDialog(null, "Item added to Order List Successfully");
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into finalorder(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnNewButton_1_1_1_2.setForeground(Color.WHITE);
+		btnNewButton_1_1_1_2.setFont(new Font("Maiandra GD", Font.BOLD, 15));
+		btnNewButton_1_1_1_2.setBackground(new Color(0, 153, 51));
+		btnNewButton_1_1_1_2.setBounds(529, 22, 110, 36);
+		panel_2_1_1_2.add(btnNewButton_1_1_1_2);
+
 		Panel panel_2_1_2_2 = new Panel();
 		panel_2_1_2_2.setLayout(null);
 		panel_2_1_2_2.setBounds(10, 388, 715, 69);
 		panel_2_2.add(panel_2_1_2_2);
-
-		JButton btnNewButton_1_1_2_2 = new JButton("ADD");
-		btnNewButton_1_1_2_2.setForeground(Color.WHITE);
-		btnNewButton_1_1_2_2.setFont(new Font("Maiandra GD", Font.BOLD, 15));
-		btnNewButton_1_1_2_2.setBackground(new Color(0, 153, 51));
-		btnNewButton_1_1_2_2.setBounds(529, 22, 110, 36);
-		panel_2_1_2_2.add(btnNewButton_1_1_2_2);
 
 		JLabel VegKolhapuri = new JLabel("Veg Kolhapuri");
 		VegKolhapuri.setBounds(45, 10, 270, 56);
@@ -629,22 +935,104 @@ public class Maharashtrian extends JFrame {
 		panel_2_1_2_2.add(lblRs);
 		lblRs.setFont(new Font("Maiandra GD", Font.BOLD, 20));
 
+		JButton btnNewButton_1_1_2_2 = new JButton("ADD");
+		btnNewButton_1_1_2_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String item = VegKolhapuri.getText();
+				int price = 150;
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into tempaddeditems(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+					JOptionPane.showMessageDialog(null, "Item added to Order List Successfully");
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into finalorder(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnNewButton_1_1_2_2.setForeground(Color.WHITE);
+		btnNewButton_1_1_2_2.setFont(new Font("Maiandra GD", Font.BOLD, 15));
+		btnNewButton_1_1_2_2.setBackground(new Color(0, 153, 51));
+		btnNewButton_1_1_2_2.setBounds(529, 22, 110, 36);
+		panel_2_1_2_2.add(btnNewButton_1_1_2_2);
+
 		Panel panel_2_1_3_2 = new Panel();
 		panel_2_1_3_2.setLayout(null);
 		panel_2_1_3_2.setBounds(10, 456, 715, 69);
 		panel_2_2.add(panel_2_1_3_2);
 
+		JLabel MushroomMasala = new JLabel("Mushroom Masala");
+		MushroomMasala.setBounds(45, 10, 273, 56);
+		panel_2_1_3_2.add(MushroomMasala);
+		MushroomMasala.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+
 		JButton btnNewButton_1_1_3_2 = new JButton("ADD");
+		btnNewButton_1_1_3_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				String item = MushroomMasala.getText();
+				int price = 170;
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into tempaddeditems(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+					JOptionPane.showMessageDialog(null, "Item added to Order List Successfully");
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into finalorder(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+			}
+		});
 		btnNewButton_1_1_3_2.setForeground(Color.WHITE);
 		btnNewButton_1_1_3_2.setFont(new Font("Maiandra GD", Font.BOLD, 15));
 		btnNewButton_1_1_3_2.setBackground(new Color(0, 153, 51));
 		btnNewButton_1_1_3_2.setBounds(529, 22, 110, 36);
 		panel_2_1_3_2.add(btnNewButton_1_1_3_2);
-
-		JLabel MushroomMasala = new JLabel("Mushroom Masala");
-		MushroomMasala.setBounds(45, 10, 273, 56);
-		panel_2_1_3_2.add(MushroomMasala);
-		MushroomMasala.setFont(new Font("Maiandra GD", Font.BOLD, 20));
 
 		JLabel lblRs_2 = new JLabel("Rs.170/-");
 		lblRs_2.setBounds(377, 8, 103, 56);
@@ -656,17 +1044,54 @@ public class Maharashtrian extends JFrame {
 		panel_2_1_4_2.setBounds(10, 525, 715, 69);
 		panel_2_2.add(panel_2_1_4_2);
 
+		JLabel KajuMalvaniMasala = new JLabel("Kaju Malvani Masala");
+		KajuMalvaniMasala.setBounds(45, 10, 276, 56);
+		panel_2_1_4_2.add(KajuMalvaniMasala);
+		KajuMalvaniMasala.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+
 		JButton btnNewButton_1_1_4_2 = new JButton("ADD");
+		btnNewButton_1_1_4_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String item = KajuMalvaniMasala.getText();
+				int price = 200;
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into tempaddeditems(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+					JOptionPane.showMessageDialog(null, "Item added to Order List Successfully");
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into finalorder(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+			}
+		});
 		btnNewButton_1_1_4_2.setForeground(Color.WHITE);
 		btnNewButton_1_1_4_2.setFont(new Font("Maiandra GD", Font.BOLD, 15));
 		btnNewButton_1_1_4_2.setBackground(new Color(0, 153, 51));
 		btnNewButton_1_1_4_2.setBounds(529, 22, 110, 36);
 		panel_2_1_4_2.add(btnNewButton_1_1_4_2);
-
-		JLabel KajuMalvaniMasala = new JLabel("Kaju Malvani Masala");
-		KajuMalvaniMasala.setBounds(45, 10, 276, 56);
-		panel_2_1_4_2.add(KajuMalvaniMasala);
-		KajuMalvaniMasala.setFont(new Font("Maiandra GD", Font.BOLD, 20));
 
 		JLabel lblRs_10 = new JLabel("Rs.200/-");
 		lblRs_10.setBounds(377, 8, 103, 56);
@@ -684,6 +1109,43 @@ public class Maharashtrian extends JFrame {
 		panel_2_1_5_1.add(ChickenHandi);
 
 		JButton btnNewButton_1_1_5_1 = new JButton("ADD");
+		btnNewButton_1_1_5_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String item = ChickenHandi.getText();
+				int price = 300;
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into tempaddeditems(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+					JOptionPane.showMessageDialog(null, "Item added to Order List Successfully");
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into finalorder(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+			}
+		});
 		btnNewButton_1_1_5_1.setForeground(Color.WHITE);
 		btnNewButton_1_1_5_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
 		btnNewButton_1_1_5_1.setBackground(new Color(0, 153, 51));
@@ -706,6 +1168,43 @@ public class Maharashtrian extends JFrame {
 		panel_2_1_1_1_1.add(ChickenMalvani);
 
 		JButton btnNewButton_1_1_1_1_1 = new JButton("ADD");
+		btnNewButton_1_1_1_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String item = ChickenMalvani.getText();
+				int price = 350;
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into tempaddeditems(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+					JOptionPane.showMessageDialog(null, "Item added to Order List Successfully");
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into finalorder(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+			}
+		});
 		btnNewButton_1_1_1_1_1.setForeground(Color.WHITE);
 		btnNewButton_1_1_1_1_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
 		btnNewButton_1_1_1_1_1.setBackground(new Color(0, 153, 51));
@@ -728,6 +1227,43 @@ public class Maharashtrian extends JFrame {
 		panel_2_1_2_1_1.add(ChickenKolhapuri);
 
 		JButton btnNewButton_1_1_2_1_1 = new JButton("ADD");
+		btnNewButton_1_1_2_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String item = ChickenKolhapuri.getText();
+				int price = 370;
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into tempaddeditems(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+					JOptionPane.showMessageDialog(null, "Item added to Order List Successfully");
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into finalorder(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+			}
+		});
 		btnNewButton_1_1_2_1_1.setForeground(Color.WHITE);
 		btnNewButton_1_1_2_1_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
 		btnNewButton_1_1_2_1_1.setBackground(new Color(0, 153, 51));
@@ -750,6 +1286,43 @@ public class Maharashtrian extends JFrame {
 		panel_2_1_3_1_1.add(PrawnsMasala);
 
 		JButton btnNewButton_1_1_3_1_1 = new JButton("ADD");
+		btnNewButton_1_1_3_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String item = PrawnsMasala.getText();
+				int price = 370;
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into tempaddeditems(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+					JOptionPane.showMessageDialog(null, "Item added to Order List Successfully");
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into finalorder(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+			}
+		});
 		btnNewButton_1_1_3_1_1.setForeground(Color.WHITE);
 		btnNewButton_1_1_3_1_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
 		btnNewButton_1_1_3_1_1.setBackground(new Color(0, 153, 51));
@@ -772,6 +1345,43 @@ public class Maharashtrian extends JFrame {
 		panel_2_1_4_1_1.add(PomfretMasala);
 
 		JButton btnNewButton_1_1_4_1_1 = new JButton("ADD");
+		btnNewButton_1_1_4_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String item = PomfretMasala.getText();
+				int price = 390;
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into tempaddeditems(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+					JOptionPane.showMessageDialog(null, "Item added to Order List Successfully");
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+
+				try {
+					PreparedStatement pst = con
+							.prepareStatement("insert into finalorder(Email,Name,Price) values(?,?,?)");
+					pst.setString(1, email);
+					pst.setString(2, item);
+					pst.setInt(3, price);
+
+					pst.executeUpdate();
+
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "Something Wrong", "Order List", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+			}
+		});
 		btnNewButton_1_1_4_1_1.setForeground(Color.WHITE);
 		btnNewButton_1_1_4_1_1.setFont(new Font("Maiandra GD", Font.BOLD, 15));
 		btnNewButton_1_1_4_1_1.setBackground(new Color(0, 153, 51));
@@ -784,10 +1394,23 @@ public class Maharashtrian extends JFrame {
 		panel_2_1_4_1_1.add(lblRs_9);
 
 		JButton btnNewButton_2_1 = new JButton("Order");
+		btnNewButton_2_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Orderdetails odp = new Orderdetails(email);
+				odp.setVisible(true);
+
+				dispose();
+			}
+		});
 		btnNewButton_2_1.setFont(new Font("Maiandra GD", Font.BOLD, 30));
 		btnNewButton_2_1.setBackground(Color.ORANGE);
 		btnNewButton_2_1.setBounds(640, 604, 209, 58);
 		panel_2_2.add(btnNewButton_2_1);
+		
+		JLabel lblMainCourse = new JLabel("Main Course");
+		lblMainCourse.setFont(new Font("Maiandra GD", Font.BOLD, 35));
+		lblMainCourse.setBounds(640, -12, 283, 90);
+		panel_2_2.add(lblMainCourse);
 
 	}
 }

@@ -1,22 +1,28 @@
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JComboBox;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.ImageIcon;
-import javax.swing.SwingConstants;
 import java.awt.Color;
-import javax.swing.JSeparator;
-import java.awt.event.ActionListener;
+import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.CompoundBorder;
 
 public class Home extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	public String email;
 
@@ -36,10 +42,15 @@ public class Home extends JFrame {
 		});
 	}
 
+	Connection con = null;
+
 	/**
 	 * Create the frame.
 	 */
 	public Home(String emailId) {
+
+		con = db.dbconnect();
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(10, 20, 1500, 800);
 		contentPane = new JPanel();
@@ -54,13 +65,8 @@ public class Home extends JFrame {
 		contentPane.add(homepanel, BorderLayout.CENTER);
 		homepanel.setLayout(null);
 
-		JLabel lblNewLabel_1_2 = new JLabel("");
-		lblNewLabel_1_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_2.setIcon(new ImageIcon(Home.class.getResource("/Images/off2.jpg")));
-		lblNewLabel_1_2.setBounds(1022, 369, 380, 161);
-		homepanel.add(lblNewLabel_1_2);
-
 		JButton btnNewButton = new JButton("Maharashtrian Food");
+		btnNewButton.setBorder(null);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 //				Maharashtrian.main(null);
@@ -71,84 +77,97 @@ public class Home extends JFrame {
 		});
 		btnNewButton.setBackground(Color.ORANGE);
 		btnNewButton.setFont(new Font("Maiandra GD", Font.BOLD, 25));
-		btnNewButton.setBounds(210, 631, 273, 75);
+		btnNewButton.setBounds(993, 295, 273, 75);
 		homepanel.add(btnNewButton);
 
 		JButton btnChineseFood = new JButton("Chinese Food");
+		btnChineseFood.setBorder(null);
 		btnChineseFood.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Chinese.main(null);
+				Chinese cp = new Chinese(email);
+				cp.setVisible(true);
 				dispose();
 			}
 		});
 		btnChineseFood.setFont(new Font("Maiandra GD", Font.BOLD, 25));
 		btnChineseFood.setBackground(Color.ORANGE);
-		btnChineseFood.setBounds(493, 632, 261, 75);
+		btnChineseFood.setBounds(993, 391, 272, 75);
 		homepanel.add(btnChineseFood);
 
 		JButton btnSouthindianFood = new JButton("South-Indian Food");
+		btnSouthindianFood.setBorder(null);
 		btnSouthindianFood.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				SouthIndian.main(null);
+				SouthIndian sip = new SouthIndian(email);
+				sip.setVisible(true);
 				dispose();
 			}
 		});
 		btnSouthindianFood.setFont(new Font("Maiandra GD", Font.BOLD, 25));
 		btnSouthindianFood.setBackground(Color.ORANGE);
-		btnSouthindianFood.setBounds(764, 634, 241, 72);
+		btnSouthindianFood.setBounds(993, 594, 273, 72);
 		homepanel.add(btnSouthindianFood);
 
 		JButton btnPunjabiFood = new JButton("NorthIndian");
+		btnPunjabiFood.setBorder(null);
 		btnPunjabiFood.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				NorthIndian.main(null);
+				NorthIndian nip = new NorthIndian(email);
+				nip.setVisible(true);
 				dispose();
 
 			}
 		});
 		btnPunjabiFood.setFont(new Font("Maiandra GD", Font.BOLD, 25));
 		btnPunjabiFood.setBackground(Color.ORANGE);
-		btnPunjabiFood.setBounds(1015, 634, 241, 72);
+		btnPunjabiFood.setBounds(993, 494, 273, 72);
 		homepanel.add(btnPunjabiFood);
 
-		JLabel lblNewLabel_1_2_1 = new JLabel("");
-		lblNewLabel_1_2_1.setIcon(new ImageIcon(Home.class.getResource("/Images/off2.jpg")));
-		lblNewLabel_1_2_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_2_1.setBounds(546, 369, 431, 161);
-		homepanel.add(lblNewLabel_1_2_1);
-
 		JLabel lblNewLabel_1_2_1_1 = new JLabel("");
-		lblNewLabel_1_2_1_1.setIcon(new ImageIcon(Home.class.getResource("/Images/off2.jpg")));
+		lblNewLabel_1_2_1_1.setVerticalAlignment(SwingConstants.TOP);
+		lblNewLabel_1_2_1_1.setIcon(new ImageIcon(Home.class.getResource("/Images/resized-image-Promo.jpeg")));
 		lblNewLabel_1_2_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_2_1_1.setBounds(43, 369, 483, 161);
+		lblNewLabel_1_2_1_1.setBounds(21, 241, 405, 502);
 		homepanel.add(lblNewLabel_1_2_1_1);
 
 		JPanel panel = new JPanel();
-		panel.setBackground(Color.BLACK);
+		panel.setBackground(new Color(0, 102, 204));
 		panel.setBounds(0, 0, 1476, 219);
 		homepanel.add(panel);
 		panel.setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(Home.class.getResource("/Images/APSITO MAIN.jpeg")));
+		lblNewLabel.setIcon(new ImageIcon(Home.class.getResource("/Images/logo.png")));
 		lblNewLabel.setBounds(49, 28, 494, 167);
 		panel.add(lblNewLabel);
 
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setIcon(new ImageIcon(Home.class.getResource("/Images/cart main.jpeg")));
-		lblNewLabel_1.setBounds(1171, 90, 295, 119);
-		panel.add(lblNewLabel_1);
-
 		JButton btnNewButton_2 = new JButton("Logout");
-		btnNewButton_2.setBounds(1248, 28, 127, 47);
+		btnNewButton_2.setBorder(null);
+		btnNewButton_2.setBounds(1308, 172, 127, 47);
 		panel.add(btnNewButton_2);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					PreparedStatement pst1 = (PreparedStatement) con
+							.prepareStatement("DELETE FROM tempaddeditems WHERE Email=?");
+					pst1.setString(1, email);
+					pst1.executeUpdate();
+
+				} catch (SQLException e1) {
+
+					e1.printStackTrace();
+				}
 				apsit.main(null);
 				dispose();
 			}
 		});
-		btnNewButton_2.setBackground(new Color(204, 0, 51));
+		btnNewButton_2.setBackground(new Color(204, 255, 255));
 		btnNewButton_2.setFont(new Font("Maiandra GD", Font.BOLD, 20));
+		
+		JLabel lblNewLabel_1_2_1_1_1 = new JLabel("");
+		lblNewLabel_1_2_1_1_1.setVerticalAlignment(SwingConstants.TOP);
+		lblNewLabel_1_2_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1_2_1_1_1.setBounds(470, 241, 405, 502);
+		homepanel.add(lblNewLabel_1_2_1_1_1);
 	}
 }
