@@ -115,6 +115,7 @@ public class Maharashtrian extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Chinese cp = new Chinese(email);
 				cp.setVisible(true);
+				dispose();
 			}
 		});
 		btnChinese.setFont(new Font("Maiandra GD", Font.BOLD, 20));
@@ -164,8 +165,7 @@ public class Maharashtrian extends JFrame {
 
 		JButton btnNewButton_1_1 = new JButton("ADD");
 		btnNewButton_1_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-//				System.out.println("email recive from Log in page in masala papad Add action :" + email);                   
+			public void actionPerformed(ActionEvent e) {                   
 				String item = MasalaPapad.getText();
 				int price = 50;
 

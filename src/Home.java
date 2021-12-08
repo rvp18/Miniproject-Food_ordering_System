@@ -15,7 +15,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
-import javax.swing.border.CompoundBorder;
 
 public class Home extends JFrame {
 
@@ -77,7 +76,7 @@ public class Home extends JFrame {
 		});
 		btnNewButton.setBackground(Color.ORANGE);
 		btnNewButton.setFont(new Font("Maiandra GD", Font.BOLD, 25));
-		btnNewButton.setBounds(993, 295, 273, 75);
+		btnNewButton.setBounds(600, 340, 273, 75);
 		homepanel.add(btnNewButton);
 
 		JButton btnChineseFood = new JButton("Chinese Food");
@@ -91,7 +90,7 @@ public class Home extends JFrame {
 		});
 		btnChineseFood.setFont(new Font("Maiandra GD", Font.BOLD, 25));
 		btnChineseFood.setBackground(Color.ORANGE);
-		btnChineseFood.setBounds(993, 391, 272, 75);
+		btnChineseFood.setBounds(600, 436, 272, 75);
 		homepanel.add(btnChineseFood);
 
 		JButton btnSouthindianFood = new JButton("South-Indian Food");
@@ -105,7 +104,7 @@ public class Home extends JFrame {
 		});
 		btnSouthindianFood.setFont(new Font("Maiandra GD", Font.BOLD, 25));
 		btnSouthindianFood.setBackground(Color.ORANGE);
-		btnSouthindianFood.setBounds(993, 594, 273, 72);
+		btnSouthindianFood.setBounds(600, 639, 273, 72);
 		homepanel.add(btnSouthindianFood);
 
 		JButton btnPunjabiFood = new JButton("NorthIndian");
@@ -120,30 +119,26 @@ public class Home extends JFrame {
 		});
 		btnPunjabiFood.setFont(new Font("Maiandra GD", Font.BOLD, 25));
 		btnPunjabiFood.setBackground(Color.ORANGE);
-		btnPunjabiFood.setBounds(993, 494, 273, 72);
+		btnPunjabiFood.setBounds(600, 539, 273, 72);
 		homepanel.add(btnPunjabiFood);
 
 		JLabel lblNewLabel_1_2_1_1 = new JLabel("");
 		lblNewLabel_1_2_1_1.setVerticalAlignment(SwingConstants.TOP);
-		lblNewLabel_1_2_1_1.setIcon(new ImageIcon(Home.class.getResource("/Images/resized-image-Promo.jpeg")));
+		lblNewLabel_1_2_1_1.setIcon(new ImageIcon(Home.class.getResource("/Images/rsz_todays_special_canva.jpg")));
 		lblNewLabel_1_2_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_2_1_1.setBounds(21, 241, 405, 502);
 		homepanel.add(lblNewLabel_1_2_1_1);
 
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(0, 102, 204));
+		panel.setBackground(Color.WHITE);
 		panel.setBounds(0, 0, 1476, 219);
 		homepanel.add(panel);
 		panel.setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(Home.class.getResource("/Images/logo.png")));
-		lblNewLabel.setBounds(49, 28, 494, 167);
-		panel.add(lblNewLabel);
-
 		JButton btnNewButton_2 = new JButton("Logout");
+		btnNewButton_2.setForeground(Color.WHITE);
 		btnNewButton_2.setBorder(null);
-		btnNewButton_2.setBounds(1308, 172, 127, 47);
+		btnNewButton_2.setBounds(1265, 92, 127, 47);
 		panel.add(btnNewButton_2);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -161,13 +156,24 @@ public class Home extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton_2.setBackground(new Color(204, 255, 255));
+		btnNewButton_2.setBackground(new Color(255, 51, 51));
 		btnNewButton_2.setFont(new Font("Maiandra GD", Font.BOLD, 20));
 		
+				JLabel lblNewLabel = new JLabel("New label");
+				lblNewLabel.setBounds(505, -390, 494, 758);
+				panel.add(lblNewLabel);
+				lblNewLabel.setIcon(new ImageIcon(Home.class.getResource("/Images/APSITO-White.jpeg")));
+		
 		JLabel lblNewLabel_1_2_1_1_1 = new JLabel("");
+		lblNewLabel_1_2_1_1_1.setIcon(new ImageIcon(Home.class.getResource("/Images/offer 1.jpg")));
 		lblNewLabel_1_2_1_1_1.setVerticalAlignment(SwingConstants.TOP);
 		lblNewLabel_1_2_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_2_1_1_1.setBounds(470, 241, 405, 502);
+		lblNewLabel_1_2_1_1_1.setBounds(1040, 241, 405, 502);
 		homepanel.add(lblNewLabel_1_2_1_1_1);
+		
+		JLabel lblNewLabel_3 = new JLabel("Menu");
+		lblNewLabel_3.setFont(new Font("Maiandra GD", Font.BOLD, 40));
+		lblNewLabel_3.setBounds(678, 253, 260, 49);
+		homepanel.add(lblNewLabel_3);
 	}
 }

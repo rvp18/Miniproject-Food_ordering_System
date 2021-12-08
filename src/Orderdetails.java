@@ -277,8 +277,6 @@ public class Orderdetails extends JFrame {
 
 				total = rs.getString("sum(Price+(Price/100)*18)");
 
-//				total=total+(total*18/100);
-
 			}
 
 		} catch (SQLException e1) {
@@ -379,7 +377,7 @@ public class Orderdetails extends JFrame {
 		lblNewLabel_4.setBounds(468, 605, 143, 24);
 		panel.add(lblNewLabel_4);
 
-		JButton btnNewButton_1_1_2 = new JButton("APPLY COUPON");
+		JButton btnNewButton_1_1_2 = new JButton("APPLY OFFER");
 		btnNewButton_1_1_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
